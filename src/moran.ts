@@ -1,4 +1,5 @@
 import { choose, type MatchState, type Sensitivities, type Spec } from "./decide.js";
+import { priorBeta0 } from "./beliefs.js";
 import { CAP_OFF, type Beliefs, type GuiltCap } from "./pga.js";
 import type { Action } from "./payoffs.js";
 import { capForGame, type Game } from "./game.js";
@@ -12,6 +13,22 @@ import {
   type Census,
   type Realized,
 } from "./population.js";
+import {
+  assertMix,
+  drawMessage,
+  emptyMessageCounts,
+  emptyTally,
+  initialCells,
+  matchFor,
+  openingCells,
+  unilateralMix,
+  updateCells,
+  type CellBeliefs,
+  type CellTally,
+  type MessageMix,
+  type MessageState,
+  type Protocol,
+} from "./messages.js";
 
 /**
  * Proceso de Moran con imitación (17 §3.4, §6.3, K12).
@@ -50,8 +67,21 @@ export type MoranParams = {
   game: Game;
   /** Tamaño de la población. */
   size: number;
-  /** φ — fracción que promete. EXÓGENO y barrido (K11). */
+  /**
+   * φ — fracción que promete, en el protocolo unilateral. EXÓGENO (K11).
+   * Con `protocol: "reciprocal"` el encuentro no lo lee: la mezcla es `messages`.
+   */
   phi: number;
+  /**
+   * Protocolo de comunicación. Default "unilateral", que es el motor de antes
+   * de R-10: agreement y partnerOnly tienen frecuencia 0.
+   */
+  protocol?: Protocol;
+  /**
+   * Mezcla exógena sobre los cuatro estados. Obligatoria si el protocolo es
+   * recíproco. Con unilateral se ignora.
+   */
+  messages?: MessageMix;
   /** s — probabilidad de que la promesa no ate a esta pareja. */
   s: number;
   /** p — probabilidad de que el primer mover observe el TIPO del decisor (§3.7). */
@@ -89,11 +119,17 @@ export type GenerationStats = {
   rollRate: number;
   /** Pago social por encuentro EN EL QUE SE ENTRÓ. NaN si no entró nadie. */
   socialPayoffGivenEntry: number;
+  /** Creencias por celda que produjeron esta generación. Unilateral no las lee. */
+  cells: CellBeliefs;
+  /** Encuentros que cayeron en cada estado. Con unilateral, acuerdo y promesa del receptor son 0. */
+  messageCounts: Record<MessageState, number>;
 };
 
 export type MoranState = {
   population: Spec[];
   beliefs: Beliefs;
+  /** Creencias por celda. El protocolo unilateral no las consulta. */
+  cells: CellBeliefs;
   generation: number;
 };
 
@@ -169,6 +205,20 @@ function assertParams(params: MoranParams): void {
   if (!Number.isInteger(encounters) || encounters <= 0) {
     throw new RangeError(`encounters debe ser un entero > 0; recibido ${String(encounters)}`);
   }
+  if ((params.protocol ?? "unilateral") === "reciprocal") {
+    if (params.messages === undefined) {
+      throw new RangeError("protocol reciprocal requiere messages");
+    }
+    assertMix(params.messages);
+  }
+}
+
+function activeMix(params: MoranParams): MessageMix {
+  if ((params.protocol ?? "unilateral") === "unilateral") return unilateralMix(params.phi);
+  if (params.messages === undefined) {
+    throw new RangeError("protocol reciprocal requiere messages");
+  }
+  return params.messages;
 }
 
 export type EncounterResult = {
@@ -176,6 +226,7 @@ export type EncounterResult = {
   firstMoverPayoff: number;
   entered: boolean;
   promised: boolean;
+  message: MessageState;
   action: Action;
 };
 
@@ -184,18 +235,29 @@ export function encounter(
   params: MoranParams,
   beliefs: Beliefs,
   rng: Rng,
+  cells?: CellBeliefs,
 ): EncounterResult {
   const { game } = params;
   const cap = capFor(params);
   const sens = sensFor(params, spec);
+  const protocol = params.protocol ?? "unilateral";
+  if (protocol === "reciprocal" && cells === undefined) {
+    throw new RangeError("encounter con protocol reciprocal requiere las creencias por celda");
+  }
 
-  const promised = rng.bool(params.phi);
+  // Un número para el mensaje, uno para el switch, uno para observar.
+  // Con unilateral el primero cae en el mismo corte que el `bool(φ)` de antes.
+  const cell = drawMessage(activeMix(params), rng);
   const switched = rng.bool(params.s);
-  const bindsThisPartner = promised && !switched;
-  const partnerExpectation = promised ? beliefs.beta1 : beliefs.beta0;
-
-  const match: MatchState = { promised, bindsThisPartner, partnerExpectation, beliefs };
+  const match = matchFor({
+    protocol,
+    cell,
+    switched,
+    cells: cells ?? initialCells(beliefs.beta1),
+    beliefs,
+  });
   const action = choose(spec, sens, match, cap);
+  const promised = match.promised;
 
   // Se consume siempre, entre o no entre el juego, para que dos corridas que
   // solo cambian un parámetro sigan alineadas en el stream.
@@ -207,6 +269,7 @@ export function encounter(
       firstMoverPayoff: game.firstMoverPayoff(action),
       entered: true,
       promised,
+      message: cell,
       action,
     };
   }
@@ -229,8 +292,23 @@ export function encounter(
     firstMoverPayoff: entered ? game.firstMoverPayoff(action) : game.outside.firstMover,
     entered,
     promised,
+    message: cell,
     action,
   };
+}
+
+/**
+ * Resumen para `state.beliefs` cuando el protocolo es recíproco.
+ * Los agentes no lo leen: leen `cells`. β₁ es la tasa en las celdas donde
+ * el decisor prometió; β₀ sigue siendo el prior derivado, con φ igual a
+ * la masa de esas celdas.
+ */
+function pooledPromisedBeliefs(tally: CellTally, fallbackBeta1: number, mix: MessageMix, r: number): Beliefs {
+  const observed = tally.agreement.observed + tally.deciderOnly.observed;
+  const rolls = tally.agreement.rolls + tally.deciderOnly.rolls;
+  const beta1 = observed > 0 ? rolls / observed : fallbackBeta1;
+  const phi = mix.agreement + mix.deciderOnly;
+  return { beta0: priorBeta0(phi, beta1, r), beta1 };
 }
 
 /**
@@ -250,21 +328,25 @@ export function step(state: MoranState, params: MoranParams, rng: Rng): {
   const size = params.size;
   const encounters = params.encounters ?? 1;
   const structural = (params.beta1Kind ?? "entered") === "structural";
+  const protocol = params.protocol ?? "unilateral";
   const fitness = new Array<number>(size).fill(0);
 
   let firstMoverTotal = 0;
   let entries = 0;
   let socialGivenEntry = 0;
   const realized: Realized = { acted: 0, promisers: 0, promiserRolls: 0, silentRolls: 0 };
+  const tally = emptyTally();
+  const messageCounts = emptyMessageCounts();
 
   for (let i = 0; i < size; i += 1) {
     const spec = state.population[i];
     if (spec === undefined) throw new Error("población con hueco");
     let total = 0;
     for (let e = 0; e < encounters; e += 1) {
-      const result = encounter(spec, params, state.beliefs, rng);
+      const result = encounter(spec, params, state.beliefs, rng, state.cells);
       total += result.deciderPayoff;
       firstMoverTotal += result.firstMoverPayoff;
+      messageCounts[result.message] += 1;
       if (result.entered) {
         entries += 1;
         socialGivenEntry += result.deciderPayoff + result.firstMoverPayoff;
@@ -277,6 +359,9 @@ export function step(state: MoranState, params: MoranParams, rng: Rng): {
         } else if (result.action === "roll") {
           realized.silentRolls += 1;
         }
+        const row = tally[result.message];
+        row.observed += 1;
+        if (result.action === "roll") row.rolls += 1;
       }
     }
     fitness[i] = total / encounters;
@@ -311,12 +396,23 @@ export function step(state: MoranState, params: MoranParams, rng: Rng): {
     entryRate: entries / plays,
     rollRate: realized.acted > 0 ? (realized.promiserRolls + realized.silentRolls) / realized.acted : 0,
     socialPayoffGivenEntry: entries > 0 ? socialGivenEntry / entries : Number.NaN,
+    cells: state.cells,
+    messageCounts,
   };
+
+  const nextCells = updateCells(tally, state.cells);
+  // Unilateral sigue pasando por beliefsFrom. Es el mismo número de antes;
+  // las celdas se anotan al lado y no vuelven a entrar al encuentro.
+  const nextBeliefs =
+    protocol === "unilateral"
+      ? beliefsFrom(realized, params.phi, state.beliefs.beta1, params.r ?? 0)
+      : pooledPromisedBeliefs(tally, state.beliefs.beta1, activeMix(params), params.r ?? 0);
 
   return {
     state: {
       population: nextPopulation,
-      beliefs: beliefsFrom(realized, params.phi, state.beliefs.beta1, params.r ?? 0),
+      beliefs: nextBeliefs,
+      cells: nextCells,
       generation: state.generation + 1,
     },
     stats,
@@ -348,14 +444,22 @@ export function run(
 
   const rng = makeRng(seed);
   const beta1 = params.beta1Init ?? 0.76;
+  const protocol = params.protocol ?? "unilateral";
+  // En unilateral φ es el parámetro. En recíproco la masa que promete el
+  // decisor sale de la mezcla; φ no entra al encuentro.
+  const phiForPrior =
+    protocol === "unilateral"
+      ? params.phi
+      : (params.messages?.agreement ?? 0) + (params.messages?.deciderOnly ?? 0);
   let state: MoranState = {
     population: initial ? initial.slice() : uniformPopulation(params.size, SPECS),
     beliefs: beliefsFrom(
       { acted: 0, promisers: 0, promiserRolls: 0, silentRolls: 0 },
-      params.phi,
+      phiForPrior,
       beta1,
       params.r ?? 0,
     ),
+    cells: openingCells(beta1, priorBeta0(phiForPrior, beta1, params.r ?? 0)),
     generation: 0,
   };
 

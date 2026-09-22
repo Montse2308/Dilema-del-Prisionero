@@ -29,3 +29,24 @@ export type {
   ObservationMode,
   Beta1Kind,
 } from "./moran.js";
+export {
+  MESSAGE_STATES,
+  assertMix,
+  unilateralMix,
+  drawMessage,
+  initialCells,
+  openingCells,
+  pgaBeliefs,
+  matchFor,
+  updateCells,
+  dictatorProbe,
+} from "./messages.js";
+export type {
+  MessageState,
+  Protocol,
+  MessageMix,
+  CellBeliefs,
+  CellTally,
+  CellRates,
+  DictatorProbe,
+} from "./messages.js";
