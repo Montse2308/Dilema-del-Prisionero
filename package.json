@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "typecheck": "tsc --noEmit",
+    "pretest": "npm run typecheck",
     "test": "vitest run",
     "test:watch": "vitest"
   },

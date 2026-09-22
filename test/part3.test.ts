@@ -154,6 +154,17 @@ describe("tope min{·, 5} y cumplimiento residual r", () => {
     }
   });
 
+  it("con el tope prendido el guard es 10·β₁ ≤ M, no β₁ ≤ β₀", () => {
+    // Con el tope, la base deja de ser β₀ y pasa a ser el outside option.
+    // Por eso "la promesa no levantó nada" ya no se lee como β₁ ≤ β₀.
+    expect(guiltMass(beliefs(BETA1, BETA1))).toBe(0);
+    expect(guiltMass(beliefs(0.9, BETA1))).toBe(0);
+    expect(guiltMass(beliefs(BETA1, BETA1), CAP_ON)).toBeCloseTo(13, 10);
+    expect(guiltMass(beliefs(0.9, BETA1), CAP_ON)).toBeCloseTo(13, 10);
+    // El guard sí dispara cuando la expectativa post-promesa no supera el tope.
+    expect(guiltMass(beliefs(0.9, 0.3), CAP_ON)).toBe(0);
+  });
+
   it("el máximo interior coincide con el tope apagado, porque 10·0.38 < 5", () => {
     const peak = beliefs(peakBeta0(BETA1));
     expect(guiltMass(peak, CAP_ON)).toBeCloseTo(guiltMass(peak, CAP_OFF), 10);
@@ -173,6 +184,42 @@ describe("tope min{·, 5} y cumplimiento residual r", () => {
     }
 
     expect(phiAtPeak(BETA1, 0.4)).toBeNull();
+  });
+});
+
+describe("sanidad de §6.3 — sin promesa y sin creencias", () => {
+  const SPECS = ["SELF", "GA", "PGA", "MC-a", "MC-b"] as const;
+
+  it("sin etapa de promesa, PGA, MC-a y MC-b son indistinguibles de SELF; GA no", () => {
+    const silent = match({ promised: false, bindsThisPartner: false });
+    const sens: Sensitivities = { theta: 0.6, c: 5 };
+
+    for (const spec of ["PGA", "MC-a", "MC-b"] as const) {
+      expect(utility(spec, "roll", sens, silent)).toBe(utility("SELF", "roll", sens, silent));
+      expect(utility(spec, "dont", sens, silent)).toBe(utility("SELF", "dont", sens, silent));
+      expect(choose(spec, sens, silent)).toBe(choose("SELF", sens, silent));
+    }
+
+    // GA no depende de la promesa por construcción (§3.2): su culpa es la
+    // creencia de segundo orden, exista o no mensaje. Se declara, no se parcha.
+    expect(choose("SELF", sens, silent)).toBe("dont");
+    expect(choose("GA", sens, silent)).toBe("roll");
+  });
+
+  it("con β = 0 y sin promesa, los cinco tipos son indistinguibles de SELF", () => {
+    const empty = match({
+      promised: false,
+      bindsThisPartner: false,
+      partnerExpectation: 0,
+      beliefs: beliefs(0, 0),
+    });
+    const sens: Sensitivities = { theta: 0.6, c: 5 };
+
+    for (const spec of SPECS) {
+      expect(utility(spec, "roll", sens, empty)).toBe(10);
+      expect(utility(spec, "dont", sens, empty)).toBe(14);
+      expect(choose(spec, sens, empty)).toBe("dont");
+    }
   });
 });
 

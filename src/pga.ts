@@ -11,8 +11,15 @@ import { DICTATOR, expectedReceiverPayoff } from "./payoffs.js";
  *
  * θ multiplica euros × euros. No es el θ de GA, que multiplica euros.
  *
- * Producto negativo significa que la promesa no levantó la expectativa.
- * Eso es culpa 0, no un premio por decepcionar.
+ * El max{0, ·} deja la culpa en 0 cuando la promesa no levanta la expectativa
+ * por encima de la base. NO es el mismo invariante en las dos opciones:
+ *
+ *   tope apagado:  base = 10·β₀  ⇒  culpa 0  ⟺  β₁ ≤ β₀
+ *   tope prendido: base = M      ⇒  culpa 0  ⟺  10·β₁ ≤ M
+ *
+ * Con el tope prendido la base deja de ser β₀ y pasa a ser el outside option,
+ * así que la cola β₀ ≥ 0.5 vale 13 aunque β₁ ≤ β₀: ahí "la promesa no levantó
+ * nada" ya no se lee comparando β₁ con β₀. Fijado en los tests.
  *
  * El tope es el outside option del trust game de K&N (paga 5).
  * Vanberg no lo tiene. Default apagado. La cola β₀ > 0.5 no se aplana a mano.

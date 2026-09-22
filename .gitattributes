@@ -1,0 +1,4 @@
+# El repo se guarda y se revisa en LF en todas las plataformas.
+# Sin esto, un editor de Windows reescribe los 12 archivos y el diff del
+# siguiente corte queda ilegible (2134 insertions / 2134 deletions).
+* text=auto eol=lf
