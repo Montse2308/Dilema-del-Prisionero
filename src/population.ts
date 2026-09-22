@@ -52,9 +52,17 @@ export function randomPopulation(
 }
 
 /**
- * Lo que la generación dejó medido. Solo cuentan los encuentros donde el
- * decisor llegó a actuar: si el primer mover se sale, no hay conducta que
- * observar, y meterla en la estadística inventaría un Don't que nadie eligió.
+ * Lo que la generación dejó medido.
+ *
+ * Qué encuentros cuentan lo decide `beta1Kind` (Q11, abierta):
+ *
+ *   "entered"    — solo los encuentros donde el decisor LLEGÓ A ACTUAR.
+ *                  Es lo que un receptor real podría observar. Default.
+ *   "structural" — todos, incluida la gente a la que no se le abrió la puerta.
+ *                  Es la tasa que el barrido cree estar moviendo.
+ *
+ * NO son intercambiables: con `s` alto la primera manda `β₁` a 1 y es lo único
+ * que mantiene viva a GA ahí. Ver `26`.
  */
 export type Realized = {
   /** Encuentros en los que el decisor actuó. */
@@ -72,9 +80,10 @@ export type Realized = {
  * PROMETEN (17 §3.2). β₀ no se mide, se deriva — es la elección de modelado
  * declarada en N3: β₀ = φ·β₁ + (1−φ)·r, con r = 0 por default.
  *
- * Sin promisores en la generación, β₁ se queda en el valor anterior en lugar
- * de colapsar a 0: "nadie prometió este paso" no es evidencia de que quien
- * promete no cumpla. `fallback` es ese valor anterior.
+ * Si `realized.promisers` es 0 —ningún promisor CONTABILIZADO, que con
+ * `beta1Kind: "entered"` significa "ninguno al que le abrieran la puerta", no
+ * "ninguno que prometiera"— β₁ se queda en el valor anterior en lugar de
+ * colapsar a 0. `fallback` es ese valor.
  */
 export function beliefsFrom(
   realized: Realized,

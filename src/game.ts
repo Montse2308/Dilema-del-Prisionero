@@ -1,4 +1,5 @@
 import { DICTATOR, RECEIVER, materialPayoff, type Action } from "./payoffs.js";
+import { CAP_OFF, type GuiltCap } from "./pga.js";
 
 /**
  * El juego entra como parámetro, no como segundo codebase (17 D2, §6.3).
@@ -64,3 +65,19 @@ export const TRUST: Game = {
 
 /** El hueco material del decisor, 14 − 10. Igual en los dos juegos. */
 export const DECIDER_GAP = DICTATOR.gap;
+
+/**
+ * El tope `min{10·β₀, outsideOption}` de la fórmula de PGA (17 §3.2, N3) por juego.
+ *
+ * En Vanberg el 5 es prestado y el tope va apagado: es la especificación principal.
+ * En el trust game el outside option EXISTE, así que ahí el tope es la forma nativa
+ * de K&N y no una robustez importada (17 §6.8).
+ *
+ * Con `φ = 0.5` y `r = 0` esto no mueve ningún pago, porque `β₀ = β₁/2 ≤ 0.5` y
+ * `10·β₀ ≤ 5`: el tope solo muerde con `φ` alto.
+ */
+export function capForGame(game: Game): GuiltCap {
+  return game.outsideOption === null
+    ? CAP_OFF
+    : { enabled: true, outsideOption: game.outsideOption };
+}
