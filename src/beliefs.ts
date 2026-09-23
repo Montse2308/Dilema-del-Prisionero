@@ -1,14 +1,14 @@
 import { assertUnitInterval } from "./domain.js";
 
 /**
- * β₀ es el prior poblacional, no la frecuencia de promisores.
- * Elección de modelado (17 §3.2, N3), no un teorema de Kawagoe & Narita.
+ * β₀ is the population prior, not the frequency of promisers.
+ * It is a modeling choice, not Kawagoe and Narita's second-order belief.
  *
- * Oficial, r = 0:  β₀ = φ · β₁
- * Robustez:        β₀ = φ · β₁ + (1 − φ) · r
+ * Default, r = 0:  β₀ = φ · β₁
+ * Robustness:      β₀ = φ · β₁ + (1 − φ) · r
  *
- * r es la tasa de cumplimiento de quien no prometió. Default 0.
- * 0.25 es la celda "sin promesa" de Economics Letters 222; no es el default.
+ * r is the keeping rate of someone who did not promise. Default 0.
+ * 0.25 is the "no promise" cell in Economics Letters 222; it is not the default.
  */
 export function priorBeta0(phi: number, beta1: number, r = 0): number {
   assertUnitInterval("phi", phi);
@@ -18,11 +18,11 @@ export function priorBeta0(phi: number, beta1: number, r = 0): number {
 }
 
 /**
- * φ que coloca el prior en el pico β₀ = β₁/2, con β₁ fijo.
+ * φ that places the prior at the peak β₀ = β₁/2, with β₁ fixed.
  * φ* = (β₁/2 − r) / (β₁ − r)
  *
- * null si r > β₁/2: el prior mínimo ya es r y la población nace
- * a la derecha del máximo. El pico se cita en β₀, no en φ.
+ * null if r > β₁/2: the lowest prior is already r, so the population
+ * is born to the right of the maximum. The peak is stated in β₀, not in φ.
  */
 export function phiAtPeak(beta1: number, r = 0): number | null {
   assertUnitInterval("beta1", beta1);

@@ -27,8 +27,8 @@ function params(overrides: Partial<MoranParams> & Pick<MoranParams, "game">): Mo
   return { size: 80, phi: 0.5, s: 0, p: 1, w: 0.5, sens: SENS, encounters: 2, ...overrides };
 }
 
-describe("protocolo unilateral — el motor de antes, semilla por semilla", () => {
-  it("drawMessage con unilateralMix consume el mismo corte que bool(φ)", () => {
+describe("unilateral protocol — the previous engine, seed by seed", () => {
+  it("drawMessage with unilateralMix consumes the same cut as bool(φ)", () => {
     for (const phi of [0, 0.3, 0.5, 1]) {
       const draw = makeRng("corte");
       const bool = makeRng("corte");
@@ -41,7 +41,7 @@ describe("protocolo unilateral — el motor de antes, semilla por semilla", () =
     }
   });
 
-  it("protocol: unilateral no mueve población, creencias ni pagos", () => {
+  it("marking the protocol unilateral does not move population, beliefs, or payoffs", () => {
     const base = params({ game: TRUST, phi: 0.3, s: 0.25, p: 0.5, w: 0.5 });
     const marked = { ...base, protocol: "unilateral" as const };
     for (const seed of ["s-0", "s-1", "s-2", "s-3"]) {
@@ -56,7 +56,7 @@ describe("protocolo unilateral — el motor de antes, semilla por semilla", () =
     }
   });
 
-  it("acuerdo y promesa del receptor tienen frecuencia 0, y su creencia no se mueve", () => {
+  it("agreement and the receiver's promise have frequency 0, and their belief does not move", () => {
     const result = run(params({ game: VANBERG, phi: 0.3, s: 0.25, p: 1 }), 20, "frecuencia");
     for (const row of result.history) {
       expect(row.messageCounts.agreement).toBe(0);
@@ -69,10 +69,10 @@ describe("protocolo unilateral — el motor de antes, semilla por semilla", () =
   });
 });
 
-describe("el mensaje del receptor entra solo como creencia", () => {
+describe("the receiver's message enters only as a belief", () => {
   const legacy = { beta0: 0.25, beta1: 0.76 };
 
-  it("unilateral ignora las creencias por celda y sigue leyendo el par derivado", () => {
+  it("unilateral ignores per-cell beliefs and keeps reading the derived pair", () => {
     const wild: CellBeliefs = { agreement: 0.01, deciderOnly: 0.02, partnerOnly: 0.03, none: 0.04 };
     expect(
       matchFor({ protocol: "unilateral", cell: "deciderOnly", switched: false, cells: wild, beliefs: legacy }),
@@ -92,7 +92,7 @@ describe("el mensaje del receptor entra solo como creencia", () => {
     });
   });
 
-  it("PGA recibe el incremento de su promesa, no una culpa nueva", () => {
+  it("PGA receives the increment of its own promise, not a new guilt term", () => {
     const cells: CellBeliefs = { agreement: 0.9, deciderOnly: 0.55, partnerOnly: 0.2, none: 0.5 };
     expect(pgaBeliefs("agreement", cells)).toEqual({ beta0: 0.2, beta1: 0.9 });
     expect(pgaBeliefs("deciderOnly", cells)).toEqual({ beta0: 0.5, beta1: 0.55 });
@@ -107,7 +107,7 @@ describe("el mensaje del receptor entra solo como creencia", () => {
     expect(deciderOnly.beliefs).toEqual({ beta0: 0.5, beta1: 0.55 });
   });
 
-  it("MC-a y MC-b no cambian entre acuerdo y promesa solo del decisor", () => {
+  it("MC-a and MC-b do not change between agreement and a one-sided promise", () => {
     const cells: CellBeliefs = { agreement: 0.9, deciderOnly: 0.55, partnerOnly: 0.2, none: 0.5 };
     for (const switched of [false, true]) {
       const agreement = matchFor({
@@ -129,7 +129,7 @@ describe("el mensaje del receptor entra solo como creencia", () => {
     }
   });
 
-  it("con las mismas creencias en todas las celdas, el acuerdo y la promesa sola son el mismo encuentro", () => {
+  it("with the same belief in every cell, agreement and a one-sided promise are the same encounter", () => {
     const cells: CellBeliefs = { agreement: 0.8, deciderOnly: 0.8, partnerOnly: 0.8, none: 0.8 };
     const agreement = matchFor({
       protocol: "reciprocal", cell: "agreement", switched: false, cells, beliefs: legacy,
@@ -143,7 +143,7 @@ describe("el mensaje del receptor entra solo como creencia", () => {
     }
   });
 
-  it("el bucle recíproco anota cada celda: PGA tira donde prometió y en las otras no", () => {
+  it("the reciprocal loop records each cell: PGA rolls where it promised and not elsewhere", () => {
     const initial = Array.from({ length: 80 }, () => "PGA" as const);
     const shared = params({ game: VANBERG, size: 80, phi: 0.5, s: 0, p: 1, encounters: 4 });
     const reciprocal = run({ ...shared, protocol: "reciprocal", messages: EVEN }, 1, "pga", initial);
@@ -153,7 +153,7 @@ describe("el mensaje del receptor entra solo como creencia", () => {
     expect(reciprocal.final.cells.none).toBe(0);
   });
 
-  it("si quien promete es φ y las celdas abren simétricas, el recíproco copia la población del unilateral", () => {
+  it("when the promiser share is φ and cells open symmetric, reciprocal copies the unilateral population", () => {
     const shared = params({ game: TRUST, size: 60, phi: 0.5, s: 0.25, p: 1 });
     const unilateral = run({ ...shared, protocol: "unilateral" }, 80, "simetria");
     const reciprocal = run(
@@ -168,8 +168,8 @@ describe("el mensaje del receptor entra solo como creencia", () => {
   });
 });
 
-describe("creencia por celda", () => {
-  it("con observaciones va a la tasa; sin observaciones se queda", () => {
+describe("belief by cell", () => {
+  it("with observations it moves to the rate; without observations it stays", () => {
     const previous: CellBeliefs = { agreement: 0.76, deciderOnly: 0.76, partnerOnly: 0.76, none: 0.76 };
     const next = updateCells(
       {
@@ -186,7 +186,7 @@ describe("creencia por celda", () => {
     expect(next.none).toBe(0.76);
   });
 
-  it("en la sonda, la celda de MC-a converge a su cumplimiento y la de frecuencia 0 no se mueve", () => {
+  it("in the probe, MC-a's cell converges to its keeping rate and a zero-frequency cell does not move", () => {
     const population = Array.from({ length: 20 }, () => "MC-a" as const);
     const probe = dictatorProbe({
       population,
@@ -214,7 +214,7 @@ describe("creencia por celda", () => {
     expect(quiet.cells.none).toBe(0);
   });
 
-  it("GA en una celda no arrastra la creencia de las otras", () => {
+  it("GA in one cell does not drag the belief of the others", () => {
     const population = Array.from({ length: 16 }, () => "GA" as const);
     const probe = dictatorProbe({
       population,
@@ -230,7 +230,7 @@ describe("creencia por celda", () => {
     expect(probe.cells.none).toBe(0);
   });
 
-  it("la sonda congela la composición y el tope del dictador viene apagado", () => {
+  it("the probe freezes composition and the dictator cap comes off", () => {
     const population = Array.from({ length: 10 }, () => "PGA" as const);
     const cells: CellBeliefs = { agreement: 0.82, deciderOnly: 0, partnerOnly: 0.8, none: 0 };
     const mix: MessageMix = { agreement: 1, deciderOnly: 0, partnerOnly: 0, none: 0 };
@@ -255,7 +255,7 @@ describe("creencia por celda", () => {
     expect(off.cells.partnerOnly).toBe(0.8);
   });
 
-  it("rechaza una mezcla que no suma 1 y un recíproco sin messages", () => {
+  it("rejects a mix that does not sum to 1 and a reciprocal run without messages", () => {
     expect(() =>
       dictatorProbe({
         population: ["GA"],

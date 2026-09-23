@@ -1,4 +1,4 @@
-# El repo se guarda y se revisa en LF en todas las plataformas.
-# Sin esto, un editor de Windows reescribe los 12 archivos y el diff del
-# siguiente corte queda ilegible (2134 insertions / 2134 deletions).
+# Store and review the repo as LF on every platform.
+# Without this, a Windows editor rewrites the sources and the next diff
+# is unreadable.
 * text=auto eol=lf

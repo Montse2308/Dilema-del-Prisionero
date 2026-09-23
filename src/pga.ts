@@ -2,27 +2,24 @@ import { assertUnitInterval } from "./domain.js";
 import { DICTATOR, expectedReceiverPayoff } from "./payoffs.js";
 
 /**
- * Forma de población de PGA (Kawagoe & Narita, 17 §3.2, 18 §7.2).
+ * Population form of personal guilt.
  *
- * Culpa disponible, en euros², antes de multiplicar por θ:
+ * Available guilt, in money squared, before multiplying by θ:
  *
- *   sin tope:  100 · β₀ · (β₁ − β₀)
- *   con tope:  M · (10·β₁ − M),   M = min{10·β₀, outsideOption}
+ *   cap off:  100 · β₀ · (β₁ − β₀)
+ *   cap on:   M · (10·β₁ − M),   M = min{10·β₀, outsideOption}
  *
- * θ multiplica euros × euros. No es el θ de GA, que multiplica euros.
+ * θ multiplies money by money. It is not the θ of general guilt, which multiplies money.
  *
- * El max{0, ·} deja la culpa en 0 cuando la promesa no levanta la expectativa
- * por encima de la base. NO es el mismo invariante en las dos opciones:
+ * max{0, ·} sets guilt to 0 when the promise does not raise the expectation
+ * above the base. That guard is not the same comparison in both options:
  *
- *   tope apagado:  base = 10·β₀  ⇒  culpa 0  ⟺  β₁ ≤ β₀
- *   tope prendido: base = M      ⇒  culpa 0  ⟺  10·β₁ ≤ M
+ *   cap off:  base = 10·β₀  ⇒  guilt is 0  ⟺  β₁ ≤ β₀
+ *   cap on:   base = M      ⇒  guilt is 0  ⟺  10·β₁ ≤ M
  *
- * Con el tope prendido la base deja de ser β₀ y pasa a ser el outside option,
- * así que la cola β₀ ≥ 0.5 vale 13 aunque β₁ ≤ β₀: ahí "la promesa no levantó
- * nada" ya no se lee comparando β₁ con β₀. Fijado en los tests.
- *
- * El tope es el outside option del trust game de K&N (paga 5).
- * Vanberg no lo tiene. Default apagado. La cola β₀ > 0.5 no se aplana a mano.
+ * With the cap on, the base is the outside option, so the tail β₀ ≥ 0.5
+ * is 13 even when β₁ ≤ β₀. The cap is the outside option of the trust game (it pays 5).
+ * Vanberg's game does not have it. Default is off.
  */
 export type GuiltCap = {
   enabled: boolean;
@@ -40,7 +37,7 @@ export function guiltMass(beliefs: Beliefs, cap: GuiltCap = CAP_OFF): number {
   assertUnitInterval("beta0", beliefs.beta0);
   assertUnitInterval("beta1", beliefs.beta1);
   if (cap.enabled && !(cap.outsideOption > 0)) {
-    throw new RangeError("outsideOption debe ser > 0 cuando el tope está prendido");
+    throw new RangeError("outsideOption must be > 0 when the cap is on");
   }
 
   const base = cap.enabled
@@ -50,7 +47,7 @@ export function guiltMass(beliefs: Beliefs, cap: GuiltCap = CAP_OFF): number {
   return Math.max(0, base * increment);
 }
 
-/** θ por encima del cual PGA prefiere tirar. ∞ si no hay culpa disponible. */
+/** θ above which personal guilt prefers to roll. ∞ if no guilt is available. */
 export function pgaThreshold(beliefs: Beliefs, cap: GuiltCap = CAP_OFF): number {
   const mass = guiltMass(beliefs, cap);
   if (mass === 0) return Number.POSITIVE_INFINITY;
@@ -58,11 +55,11 @@ export function pgaThreshold(beliefs: Beliefs, cap: GuiltCap = CAP_OFF): number 
 }
 
 /**
- * Forma corta, solo para el partner-switch de laboratorio.
+ * Short form, only for the laboratory partner switch.
  *
- * I · decepción completa, en euros. No es el producto.
- * Con la creencia 0.76 de Vanberg el umbral es 4/7.6 ≈ 0.53,
- * el mismo número que GA. En población ese número no se usa.
+ * Full disappointment, in money. Not the product.
+ * At Vanberg's belief 0.76 the threshold is 4/7.6 ≈ 0.53, the same number as general guilt.
+ * The population comparison does not use this number.
  */
 export function labDisappointment(partnerExpectation: number): number {
   assertUnitInterval("partnerExpectation", partnerExpectation);

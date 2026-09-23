@@ -9,11 +9,11 @@ import {
 import { type Action, materialPayoff, expectedReceiverPayoff, RECEIVER } from "./payoffs.js";
 
 /**
- * S-guilt: la culpa se calcula con las creencias que se le pasan al agente,
- * no con las creencias reales del otro. Es la única que el agente puede computar.
+ * Simple guilt: guilt is computed from the beliefs passed to the agent,
+ * not from the other person's actual beliefs. Those are the only beliefs
+ * the agent can compute.
  *
- * θ y c son parámetros del llamado. No son genes: la selección, cuando exista,
- * copia el tipo, no estos números.
+ * θ and c are arguments. They are not genes: selection copies the type, not these numbers.
  */
 export type Spec = "SELF" | "GA" | "PGA" | "MC-a" | "MC-b";
 
@@ -23,25 +23,25 @@ export type Sensitivities = {
 };
 
 export type MatchState = {
-  /** Mandé una promesa de tirar. */
+  /** This agent promised to roll. */
   promised: boolean;
   /**
-   * Esa promesa se la hice a quien tengo enfrente.
-   * En el partner-switch es false: la promesa de la mesa la hizo otro.
+   * That promise was made to the person now in front.
+   * False under the partner switch: someone else made the promise at the table.
    */
   bindsThisPartner: boolean;
   /**
-   * Probabilidad que esta pareja asigna a que yo tire.
-   * GA la usa tal cual. En el laboratorio es la misma con switch y sin switch.
+   * Probability this partner assigns to the agent rolling.
+   * General guilt uses it as is. In the laboratory it is the same with and without the switch.
    */
   partnerExpectation: number;
-  /** β₀ y β₁ de la población. PGA en forma completa las usa solo si la promesa es mía. */
+  /** Population β₀ and β₁. Full personal guilt uses them only if the promise is this agent's. */
   beliefs: Beliefs;
 };
 
 function assertMatch(match: MatchState): void {
   if (match.bindsThisPartner && !match.promised) {
-    throw new RangeError("bindsThisPartner implica promised");
+    throw new RangeError("bindsThisPartner requires promised");
   }
   assertUnitInterval("partnerExpectation", match.partnerExpectation);
 }
@@ -86,8 +86,8 @@ export function utility(
 }
 
 /**
- * Tira solo si es estrictamente mejor. En la igualdad, Don't.
- * Así está escrito el umbral de 17 §3.2: "tiro si 10 > 14 − …".
+ * Rolls only if it is strictly better. At a tie, Don't.
+ * The threshold is written as "roll if 10 > 14 − …".
  */
 export function choose(
   spec: Spec,
@@ -101,8 +101,7 @@ export function choose(
 }
 
 /**
- * Utilidad de la forma corta de laboratorio. Sirve para reproducir la tabla
- * de 17 §3.2. La decisión de población no pasa por aquí.
+ * Utility in the short laboratory form. The population decision does not go through here.
  */
 export function labUtility(
   spec: "GA" | "PGA",

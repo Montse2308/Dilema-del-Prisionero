@@ -5,17 +5,18 @@ import type { Rng } from "./rng.js";
 import { assertUnitInterval } from "./domain.js";
 
 /**
- * Etapa de mensajes (R-10). El protocolo es un parámetro; la frecuencia de
- * cada estado es exógena, como φ (K11).
+ * Message stage. The protocol is a parameter. Each state's frequency is
+ * exogenous, like φ.
  *
- *   "unilateral"  — solo el decisor puede prometer. Dos estados con masa:
- *                   deciderOnly y none. agreement y partnerOnly quedan en 0,
- *                   y el encuentro es el de antes de este corte, bit a bit.
- *   "reciprocal"  — los dos pueden hablar. Cuatro estados.
+ *   "unilateral"  — only the decider can promise. Two states have mass:
+ *                   deciderOnly and none. agreement and partnerOnly stay at 0,
+ *                   and the encounter matches the two-state engine, bit for bit.
+ *   "reciprocal"  — both can speak. Four states.
  *
- * El mensaje del receptor no entra en la utilidad. Entra como creencia:
- * GA lee la expectativa de la celda, PGA lee el incremento de SU promesa
- * con la misma guiltMass de siempre. MC-a y MC-b no leen ninguna de las dos.
+ * The receiver's message does not enter utility. It enters as a belief:
+ * general guilt reads the cell's expectation, personal guilt reads the
+ * increment of its own promise, through the same guiltMass. Neither commitment
+ * type reads either field.
  */
 export const MESSAGE_STATES = ["agreement", "deciderOnly", "partnerOnly", "none"] as const;
 
@@ -23,10 +24,10 @@ export type MessageState = (typeof MESSAGE_STATES)[number];
 
 export type Protocol = "unilateral" | "reciprocal";
 
-/** Frecuencias exógenas. Tienen que sumar 1. */
+/** Exogenous frequencies. They must sum to 1. */
 export type MessageMix = Record<MessageState, number>;
 
-/** Una creencia por estado de mensaje. No es β₀: β₀ sigue siendo el prior derivado. */
+/** One belief per message state. This is not β₀: β₀ remains the derived prior. */
 export type CellBeliefs = Record<MessageState, number>;
 
 export type CellCount = { observed: number; rolls: number };
@@ -34,9 +35,9 @@ export type CellCount = { observed: number; rolls: number };
 export type CellTally = Record<MessageState, CellCount>;
 
 export type SwitchRates = {
-  /** La promesa ata a esta pareja. */
+  /** The promise binds this partner. */
   stayed: number;
-  /** s soltó el vínculo. La expectativa de la celda no cambia. */
+  /** s released the bond. The cell's expectation does not change. */
   switched: number;
 };
 
@@ -44,7 +45,7 @@ export type CellRates = Record<MessageState, SwitchRates>;
 
 export type DictatorProbe = {
   cells: CellBeliefs;
-  /** Tasas por celda y por switch. Se calculan aunque la celda tenga frecuencia 0. */
+  /** Rates by cell and by switch. Computed even if the cell has frequency 0. */
   rates: CellRates;
   iterations: number;
   fixed: boolean;
@@ -63,7 +64,7 @@ export function emptyMessageCounts(): Record<MessageState, number> {
   return { agreement: 0, deciderOnly: 0, partnerOnly: 0, none: 0 };
 }
 
-/** La mezcla de dos estados que el motor ya tenía: φ promete, 1−φ calla. */
+/** The two-state mix the engine already had: φ promises, 1−φ stays silent. */
 export function unilateralMix(phi: number): MessageMix {
   return { agreement: 0, deciderOnly: phi, partnerOnly: 0, none: 1 - phi };
 }
@@ -75,7 +76,7 @@ export function assertMix(mix: MessageMix): void {
     sum += mix[cell];
   }
   if (Math.abs(sum - 1) > 1e-9) {
-    throw new RangeError(`la mezcla de mensajes debe sumar 1; suma ${String(sum)}`);
+    throw new RangeError(`message frequencies must sum to 1; sum is ${String(sum)}`);
   }
 }
 
@@ -85,17 +86,16 @@ export function initialCells(beta: number): CellBeliefs {
 }
 
 /**
- * Apertura consistente con el par de siempre.
+ * Opening consistent with the usual pair.
  *
- * Las celdas en las que el decisor prometió abren en β₁. Las otras abren en
- * el prior β₀, no en β₁: si el silencio abre en 0.76, GA tira aunque nadie
- * haya prometido, el primer mover le abre siempre y GA fija. Eso no es el
- * protocolo; es la condición inicial.
+ * Cells in which the decider promised open at β₁. The others open at the
+ * prior β₀, not at β₁: if silence opened at 0.76, general guilt would roll
+ * even though nobody promised, the first mover would always let it in, and
+ * it would fixate. That would be the initial condition, not the protocol.
  *
- * Acuerdo y promesa solo del decisor abren iguales, y promesa del receptor
- * y silencio también. Con esas igualdades ningún tipo trata distinto el
- * mensaje del receptor, así que la diferencia tiene que producirla la
- * conducta. No se siembra a mano.
+ * Agreement and a one-sided promise open equal, and so do the receiver's
+ * promise and silence. Under those equalities no type treats the receiver's
+ * message differently, so any difference has to come from behavior.
  */
 export function openingCells(beta1: number, beta0: number): CellBeliefs {
   assertUnitInterval("beta1", beta1);
@@ -104,12 +104,11 @@ export function openingCells(beta1: number, beta0: number): CellBeliefs {
 }
 
 /**
- * Un solo número del stream, igual que `rng.bool`.
+ * One draw from the stream, the same as `rng.bool`.
  *
- * Con `unilateralMix(φ)` el corte cae en el mismo lugar que `bool(φ)`:
- * acuerdo y promesa del receptor tienen masa 0, así que u < φ es
- * deciderOnly y el resto es none. Por eso el protocolo unilateral no
- * desalinea la semilla.
+ * With `unilateralMix(φ)` the cut falls in the same place as `bool(φ)`:
+ * agreement and the receiver's promise have mass 0, so u < φ is deciderOnly
+ * and the rest is none. The unilateral protocol does not shift the seed.
  */
 export function drawMessage(mix: MessageMix, rng: Rng): MessageState {
   const u = rng.next();
@@ -120,15 +119,15 @@ export function drawMessage(mix: MessageMix, rng: Rng): MessageState {
 }
 
 /**
- * El par (β₀, β₁) que PGA ya sabe leer. No es una fórmula nueva:
- * β₁ es la celda en la que su promesa está dicha, β₀ es la misma celda
- * sin esa promesa. El incremento es lo que su palabra mueve.
+ * The (β₀, β₁) pair personal guilt already knows how to read.
+ * β₁ is the cell in which its promise was said. β₀ is that cell without
+ * the promise. The increment is what its word moves.
  *
- *   acuerdo            β₁ = acuerdo,          β₀ = promesa del receptor
- *   solo el decisor    β₁ = solo el decisor,  β₀ = silencio
+ *   agreement     β₁ = agreement,          β₀ = receiver's promise
+ *   decider only  β₁ = decider only,       β₀ = silence
  *
- * En las celdas donde él no prometió el par no se usa: la culpa de PGA
- * pide que el vínculo ate, y ahí no ata.
+ * In cells where this agent did not promise, the pair is unused: personal
+ * guilt requires the bond, and there the bond does not hold.
  */
 export function pgaBeliefs(cell: MessageState, cells: CellBeliefs): Beliefs {
   switch (cell) {
@@ -144,15 +143,15 @@ export function pgaBeliefs(cell: MessageState, cells: CellBeliefs): Beliefs {
 }
 
 /**
- * Traduce la celda al MatchState que el kernel ya consume.
+ * Translates the cell into the MatchState the kernel already consumes.
  *
- * Unilateral no lee `cells`. Lee el par derivado de siempre —β₁ medido,
- * β₀ = φ·β₁ + (1−φ)·r— que es lo que hace que el corte reproduzca el
- * motor anterior semilla por semilla. Meter acá la tasa silenciosa medida
- * cambiaría la culpa de PGA con los mismos parámetros.
+ * Unilateral does not read `cells`. It reads the derived pair — measured β₁,
+ * β₀ = φ·β₁ + (1−φ)·r — which is what makes this cut reproduce the previous
+ * engine, seed by seed. Feeding it the measured silent rate would change
+ * personal guilt under the same parameters.
  *
- * Recíproco sí lee `cells`. GA se queda con la expectativa de la celda.
- * PGA se queda con el par de arriba. MC no mira ninguno de los dos campos.
+ * Reciprocal does read `cells`. General guilt keeps the cell's expectation.
+ * Personal guilt keeps the pair above. Commitment looks at neither field.
  */
 export function matchFor(args: {
   protocol: Protocol;
@@ -180,9 +179,9 @@ export function matchFor(args: {
 }
 
 /**
- * La misma regla que `beliefsFrom`: la tasa realizada en la celda, y si
- * nadie fue contabilizado, el valor anterior. El retraso de una generación
- * lo pone quien llama, pasando el vector previo.
+ * Same rule as `beliefsFrom`: the realized rate in the cell, or the previous
+ * value if nobody was counted. The caller supplies the one-generation lag
+ * by passing the previous vector.
  */
 export function updateCells(tally: CellTally, previous: CellBeliefs): CellBeliefs {
   const next: CellBeliefs = { ...previous };
@@ -247,17 +246,17 @@ function cellsEqual(a: CellBeliefs, b: CellBeliefs): boolean {
 }
 
 /**
- * Sonda del dictador. La composición llega congelada: acá no hay Moran.
+ * Dictator probe. Composition arrives frozen: there is no Moran step here.
  *
- * Las creencias se resuelven en este juego, celda por celda, con la misma
- * regla de actualización. No se importa el β del trust game: ese β está
- * censurado por la entrada, y el dictador no tiene entrada.
+ * Beliefs are solved in this game, cell by cell, with the same update rule.
+ * The trust game's β is not imported: that β is censored by entry, and the
+ * dictator has no entry.
  *
- * El tope queda apagado. Vanberg no tiene outside option; prenderlo sería
- * prestarle el 5 del trust game.
+ * The cap stays off. Vanberg has no outside option; turning it on would
+ * borrow the trust game's 5.
  *
- * Una celda con frecuencia 0 no se observa, así que su creencia no se mueve.
- * La tasa contrafactual sí se reporta: es lo que esta población haría ahí.
+ * A cell with frequency 0 is not observed, so its belief does not move.
+ * The counterfactual rate is still reported: it is what this population would do there.
  */
 export function dictatorProbe(args: {
   population: readonly Spec[];
@@ -271,12 +270,12 @@ export function dictatorProbe(args: {
   assertUnitInterval("s", args.s);
   assertMix(args.mix);
   const size = args.population.length;
-  if (size === 0) throw new RangeError("la sonda necesita una población");
+  if (size === 0) throw new RangeError("the probe needs a population");
   const counts = census(args.population);
   const cap = args.cap ?? CAP_OFF;
   const maxIterations = args.maxIterations ?? 32;
   if (!Number.isInteger(maxIterations) || maxIterations <= 0) {
-    throw new RangeError(`maxIterations debe ser un entero > 0; recibido ${String(maxIterations)}`);
+    throw new RangeError(`maxIterations must be an integer > 0; received ${String(maxIterations)}`);
   }
 
   let cells: CellBeliefs = { ...args.cells };

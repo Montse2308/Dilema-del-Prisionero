@@ -1,7 +1,13 @@
 {
   "name": "dilema-prisionero",
   "private": true,
+  "description": "Evolutionary simulation of personal guilt and partner-specific commitment.",
+  "license": "MIT",
+  "author": "Montserrat Ximena Hernández Gallegos",
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "typecheck": "tsc --noEmit",
     "pretest": "npm run typecheck",

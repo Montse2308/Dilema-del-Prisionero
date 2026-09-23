@@ -1,25 +1,24 @@
 /**
- * PRNG determinista con semilla explícita (17 §6.3: "RNG con seed explícito
- * desde el primer commit"). Sin dependencias de runtime (D2).
+ * Deterministic PRNG with an explicit seed. No runtime dependencies.
  *
- * mulberry32: 32 bits de estado. Alcanza de sobra para poblaciones de cientos
- * de agentes y miles de generaciones. No es criptográfico y no lo pretende.
+ * mulberry32: 32 bits of state. Enough for populations of hundreds of agents
+ * and thousands of generations. It is not cryptographic.
  *
- * Regla del stream: TODAS las funciones consumen exactamente un número por
- * llamada, incluso cuando el resultado es determinista (p = 0 o p = 1). Así
- * dos corridas que solo cambian un parámetro siguen alineadas y la comparación
- * entre ellas no mezcla efecto con desfase del generador.
+ * Stream rule: every function consumes exactly one number per call, even when
+ * the result is deterministic (p = 0 or p = 1). Two runs that differ by one
+ * parameter stay aligned, so the comparison does not mix the effect with a
+ * shift in the generator.
  */
 export type Rng = {
-  /** Uniforme en [0, 1). */
+  /** Uniform on [0, 1). */
   next(): number;
-  /** Entero uniforme en [0, n). */
+  /** Uniform integer on [0, n). */
   int(n: number): number;
-  /** true con probabilidad p. Consume un número siempre. */
+  /** true with probability p. Always consumes one number. */
   bool(p: number): boolean;
 };
 
-/** FNV-1a de 32 bits. Acepta texto para que las semillas sean legibles. */
+/** 32-bit FNV-1a. Accepts text so seeds can be readable. */
 export function hashSeed(seed: string | number): number {
   const text = typeof seed === "number" ? String(seed) : seed;
   let hash = 2166136261 >>> 0;
@@ -44,7 +43,7 @@ export function makeRng(seed: string | number): Rng {
     next,
     int(n: number): number {
       if (!Number.isInteger(n) || n <= 0) {
-        throw new RangeError(`int(n) requiere un entero > 0; recibido ${String(n)}`);
+        throw new RangeError(`int(n) requires an integer > 0; received ${String(n)}`);
       }
       return Math.floor(next() * n);
     },

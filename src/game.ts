@@ -2,35 +2,33 @@ import { DICTATOR, RECEIVER, materialPayoff, type Action } from "./payoffs.js";
 import { CAP_OFF, type GuiltCap } from "./pga.js";
 
 /**
- * El juego entra como parámetro, no como segundo codebase (17 D2, §6.3).
+ * The game is a parameter.
  *
- * Los dos juegos comparten los pagos del decisor —10 si tira, 14 si no— y la
- * expectativa del receptor si tira —10—. Eso está verificado en 18 §3.4: el
- * mapeo de los puntos del experimento de K&N al juego 5/10/12/14 es exacto.
+ * Both games share the decider's payoffs — 10 for rolling, 14 for not —
+ * and the receiver's expectation if the decider rolls — 10.
  *
- * Lo único que cambia es si el primer mover tiene una acción:
+ * What changes is whether the first mover has an action:
  *
- *   Vanberg  : el receptor es pasivo. π del decisor no depende de nadie.
- *   K&N/CD06 : A elige In / Out, y Out paga 5 a los dos.
+ *   Vanberg: the receiver is passive. The decider's payoff depends on nobody else.
+ *   Trust:   the first mover chooses In or Out, and Out pays 5 to both.
  *
- * Esa diferencia no es cosmética. Es la que decide si la selección puede
- * agarrarse de algo: ver 17 §6.8.
+ * That difference is what gives selection something to attach to.
  */
 export type Game = {
   id: "vanberg" | "trust";
-  /** ¿El primer mover elige entrar? */
+  /** Does the first mover choose whether to enter? */
   hasEntry: boolean;
-  /** Pagos si el primer mover se sale. null si el juego no tiene esa etapa. */
+  /** Payoffs if the first mover stays out. null if the game has no such stage. */
   outside: { firstMover: number; decider: number } | null;
-  /** El outside option que usa el tope de PGA (17 §3.2, N3). null si no existe. */
+  /** Outside option used by the personal-guilt cap. null if there is none. */
   outsideOption: number | null;
-  /** Pago material del decisor. */
+  /** Material payoff of the decider. */
   deciderPayoff(action: Action): number;
-  /** Pago esperado del primer mover dada la acción del decisor. */
+  /** Expected payoff of the first mover given the decider's action. */
   firstMoverPayoff(action: Action): number;
 };
 
-/** Vanberg 2008 (17 §2.6). El receptor no elige nada. */
+/** Vanberg 2008. The receiver chooses nothing. */
 export const VANBERG: Game = {
   id: "vanberg",
   hasEntry: false,
@@ -42,15 +40,14 @@ export const VANBERG: Game = {
 };
 
 /**
- * Trust game con acción oculta de Charness & Dufwenberg 2006, el que usan
- * Kawagoe & Narita. Pagos de 18 §3.1, ya verificados contra los puntos del
- * experimento:
+ * Trust game with hidden action (Charness & Dufwenberg 2006), the one
+ * Kawagoe & Narita use:
  *
  *              A
  *           Out    In
  *         (5, 5)    B
  *                Roll                       Don't
- *        A: 12 c/ 5/6 · 0 c/ 1/6 → 10       A: 0
+ *        A: 12 with 5/6 · 0 with 1/6 → 10   A: 0
  *        B: 10                              B: 14
  */
 export const TRUST: Game = {
@@ -63,18 +60,17 @@ export const TRUST: Game = {
     action === "roll" ? RECEIVER.expectedIfRoll : RECEIVER.ifDont,
 };
 
-/** El hueco material del decisor, 14 − 10. Igual en los dos juegos. */
+/** The decider's material gap, 14 − 10. The same in both games. */
 export const DECIDER_GAP = DICTATOR.gap;
 
 /**
- * El tope `min{10·β₀, outsideOption}` de la fórmula de PGA (17 §3.2, N3) por juego.
+ * Personal-guilt cap `min{10·β₀, outsideOption}`, by game.
  *
- * En Vanberg el 5 es prestado y el tope va apagado: es la especificación principal.
- * En el trust game el outside option EXISTE, así que ahí el tope es la forma nativa
- * de K&N y no una robustez importada (17 §6.8).
+ * Vanberg has no outside option, so the cap is off: that is the principal specification.
+ * In the trust game the outside option exists, so the cap is the native form.
  *
- * Con `φ = 0.5` y `r = 0` esto no mueve ningún pago, porque `β₀ = β₁/2 ≤ 0.5` y
- * `10·β₀ ≤ 5`: el tope solo muerde con `φ` alto.
+ * With `φ = 0.5` and `r = 0` the cap does not move any payoff, because
+ * `β₀ = β₁/2 ≤ 0.5` and `10·β₀ ≤ 5`. It binds only when `φ` is high.
  */
 export function capForGame(game: Game): GuiltCap {
   return game.outsideOption === null

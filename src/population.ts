@@ -17,73 +17,71 @@ export function census(population: readonly Spec[]): Census {
   return counts;
 }
 
-/** El tipo que ocupa toda la población, o null si todavía conviven varios. */
+/** The type that fills the population, or null if several still coexist. */
 export function fixatedSpec(population: readonly Spec[]): Spec | null {
   const first = population[0];
   if (first === undefined) return null;
   return population.every((spec) => spec === first) ? first : null;
 }
 
-/** Población en partes iguales, con el resto repartido en orden. */
+/** Equal shares, with the remainder handed out in order. */
 export function uniformPopulation(size: number, specs: readonly Spec[] = SPECS): Spec[] {
   if (!Number.isInteger(size) || size <= 0) {
-    throw new RangeError(`size debe ser un entero > 0; recibido ${String(size)}`);
+    throw new RangeError(`size must be an integer > 0; received ${String(size)}`);
   }
-  if (specs.length === 0) throw new RangeError("specs no puede estar vacío");
+  if (specs.length === 0) throw new RangeError("specs must not be empty");
   return Array.from({ length: size }, (_, i) => {
     const spec = specs[i % specs.length];
-    if (spec === undefined) throw new Error("specs con hueco");
+    if (spec === undefined) throw new Error("specs has a hole");
     return spec;
   });
 }
 
-/** Población al azar, con la semilla del bucle. */
+/** Random population, using the loop's seed. */
 export function randomPopulation(
   size: number,
   rng: Rng,
   specs: readonly Spec[] = SPECS,
 ): Spec[] {
-  if (specs.length === 0) throw new RangeError("specs no puede estar vacío");
+  if (specs.length === 0) throw new RangeError("specs must not be empty");
   return Array.from({ length: size }, () => {
     const spec = specs[rng.int(specs.length)];
-    if (spec === undefined) throw new Error("specs con hueco");
+    if (spec === undefined) throw new Error("specs has a hole");
     return spec;
   });
 }
 
 /**
- * Lo que la generación dejó medido.
+ * What the generation measured.
  *
- * Qué encuentros cuentan lo decide `beta1Kind` (Q11, abierta):
+ * Which encounters count is `beta1Kind`:
  *
- *   "entered"    — solo los encuentros donde el decisor LLEGÓ A ACTUAR.
- *                  Es lo que un receptor real podría observar. Default.
- *   "structural" — todos, incluida la gente a la que no se le abrió la puerta.
- *                  Es la tasa que el barrido cree estar moviendo.
- *
- * NO son intercambiables: con `s` alto la primera manda `β₁` a 1 y es lo único
- * que mantiene viva a GA ahí. Ver `26`.
+ *   "entered"    — only encounters in which the decider got to act.
+ *                  What a real receiver could observe. This is the default,
+ *                  and the one the manuscript uses.
+ *   "structural" — everyone, including people the first mover did not let in.
+ *                  A diagnostic. The two are not interchangeable: with high `s`,
+ *                  "entered" sends β₁ to 1, and that is what keeps general guilt alive there.
  */
 export type Realized = {
-  /** Encuentros en los que el decisor actuó. */
+  /** Encounters in which the decider acted. */
   acted: number;
-  /** De esos, cuántos venían con promesa. */
+  /** Of those, how many arrived with a promise. */
   promisers: number;
-  /** De los que prometieron, cuántos tiraron. */
+  /** Of those who promised, how many rolled. */
   promiserRolls: number;
-  /** De los que NO prometieron, cuántos tiraron. */
+  /** Of those who did NOT promise, how many rolled. */
   silentRolls: number;
 };
 
 /**
- * β₁ sale de la conducta realizada del paso anterior: cuánto cumplen LOS QUE
- * PROMETEN (17 §3.2). β₀ no se mide, se deriva — es la elección de modelado
- * declarada en N3: β₀ = φ·β₁ + (1−φ)·r, con r = 0 por default.
+ * β₁ is the realized keeping rate, from the previous step, among those who promised.
+ * β₀ is not measured. It is derived: β₀ = φ·β₁ + (1−φ)·r, with r = 0 by default.
  *
- * Si `realized.promisers` es 0 —ningún promisor CONTABILIZADO, que con
- * `beta1Kind: "entered"` significa "ninguno al que le abrieran la puerta", no
- * "ninguno que prometiera"— β₁ se queda en el valor anterior en lugar de
- * colapsar a 0. `fallback` es ese valor.
+ * If `realized.promisers` is 0 — no promiser was counted, which under
+ * `beta1Kind: "entered"` means "none for whom the door opened", not "none who
+ * promised" — β₁ stays at the previous value instead of collapsing to 0.
+ * `fallback` is that value.
  */
 export function beliefsFrom(
   realized: Realized,

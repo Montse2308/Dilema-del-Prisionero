@@ -83,8 +83,8 @@ function evolve(beta0: number, seed: string) {
   return { counts: census(state.population), fixated: fixatedSpec(state.population) };
 }
 
-describe("medición Q9 — no entra a la suite", () => {
-  it("grilla y 400 generaciones", { timeout: 180_000 }, () => {
+describe("curve measurement — excluded from the default suite", () => {
+  it("grid and 400 generations", { timeout: 180_000 }, () => {
     const grid = [];
     for (let i = 0; i <= 16; i += 1) {
       const beta0 = i === 16 ? 0.76 : i / 20;

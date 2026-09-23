@@ -21,12 +21,12 @@ import {
 } from "../src/index.js";
 
 /**
- * Q9 / `29`. La confianza de fondo se inyecta en el estado que `step` consume.
- * `run()` no aprende a clavarla: el test de abajo exige que el update oficial
- * siga siendo β₀ = φ·β₁ + (1−φ)·r.
+ * Background trust is injected into the state `step` consumes.
+ * `run()` does not learn to pin it: a test below requires the official update
+ * to remain β₀ = φ·β₁ + (1−φ)·r.
  *
- * La conducta se lee con `choose`. Con p = 1 el Don't no entra, y `rollRate`
- * queda en 0 por el denominador vacío (`26`).
+ * Behavior is read with `choose`. With p = 1, Don't is not let in, so
+ * `rollRate` is 0 because the denominator is empty.
  */
 
 const BETA1 = 0.76;
@@ -75,8 +75,8 @@ function playPure(spec: Spec, beta0: number, cap: GuiltCap = CAP_OFF) {
   return step(state, params, makeRng("curva"));
 }
 
-describe("Q9 — la loma llega al pago, con la creencia clavada", () => {
-  it("la culpa en los tres puntos repite la tabla de §3.3", () => {
+describe("the hump reaches the payoff, with the belief pinned", () => {
+  it("guilt at the three points repeats the table", () => {
     expect(guiltMass(beliefs(0.05))).toBeCloseTo(3.55, 10);
     expect(guiltMass(beliefs(0.38))).toBeCloseTo(14.44, 10);
     expect(guiltMass(beliefs(0.74))).toBeCloseTo(1.48, 10);
@@ -84,7 +84,7 @@ describe("Q9 — la loma llega al pago, con la creencia clavada", () => {
     expect(guiltMass(beliefs(0.38))).toBeGreaterThan(guiltMass(beliefs(0.74)));
   });
 
-  it("PGA no tira, tira, no tira; MC-b y GA tiran en los tres", () => {
+  it("PGA does not roll, rolls, does not roll; MC-b and GA roll at all three", () => {
     const pga = POINTS.map((beta0) => choose("PGA", SENS, binding(beta0)));
     const mcb = POINTS.map((beta0) => choose("MC-b", SENS, binding(beta0)));
     const ga = POINTS.map((beta0) => choose("GA", SENS, binding(beta0)));
@@ -93,14 +93,14 @@ describe("Q9 — la loma llega al pago, con la creencia clavada", () => {
     expect(ga).toEqual(["roll", "roll", "roll"]);
   });
 
-  it("el euro es 5, 10, 5 para PGA y 10 plano para MC-b y para GA", () => {
+  it("the payoff is 5, 10, 5 for PGA and flat 10 for MC-b and GA", () => {
     const payoff = (spec: Spec, beta0: number) => playPure(spec, beta0).stats.meanDeciderPayoff;
     expect(POINTS.map((beta0) => payoff("PGA", beta0))).toEqual([5, 10, 5]);
     expect(POINTS.map((beta0) => payoff("MC-b", beta0))).toEqual([10, 10, 10]);
     expect(POINTS.map((beta0) => payoff("GA", beta0))).toEqual([10, 10, 10]);
   });
 
-  it("la generación usa el β₀ inyectado, y el paso siguiente vuelve a la fórmula", () => {
+  it("the generation uses the injected β₀, and the next step returns to the formula", () => {
     const played = playPure("PGA", 0.05);
     expect(played.stats.beliefs.beta0).toBe(0.05);
     expect(played.state.beliefs.beta0).toBeCloseTo(
@@ -110,7 +110,7 @@ describe("Q9 — la loma llega al pago, con la creencia clavada", () => {
     expect(played.state.beliefs.beta0).not.toBe(0.05);
   });
 
-  it("una corrida normal sigue derivando β₀ = φ·β₁", () => {
+  it("a normal run still derives β₀ = φ·β₁", () => {
     const phi = 0.5;
     const result = run(
       {
@@ -129,7 +129,7 @@ describe("Q9 — la loma llega al pago, con la creencia clavada", () => {
       uniformPopulation(30, ["PGA", "MC-b"]),
     );
     const opening = result.history[0];
-    if (opening === undefined) throw new Error("corrida sin generaciones");
+    if (opening === undefined) throw new Error("run has no generations");
     expect(opening.beliefs).toEqual(beliefsFrom(
       { acted: 0, promisers: 0, promiserRolls: 0, silentRolls: 0 },
       phi,
@@ -139,7 +139,7 @@ describe("Q9 — la loma llega al pago, con la creencia clavada", () => {
     expect(result.final.beliefs.beta0).toBeCloseTo(priorBeta0(phi, result.final.beliefs.beta1, 0), 12);
   });
 
-  it("la grilla cobra 10 solo donde la culpa supera el hueco de 4", () => {
+  it("the grid pays 10 only where guilt clears the gap of 4", () => {
     for (let i = 0; i <= 15; i += 1) {
       const beta0 = i / 20;
       const rolls = choose("PGA", SENS, binding(beta0)) === "roll";
@@ -154,14 +154,14 @@ describe("Q9 — la loma llega al pago, con la creencia clavada", () => {
     expect(choose("PGA", SENS, binding(0.7))).toBe("dont");
   });
 
-  it("con el tope prendido la cola derecha no baja: en 0.74 PGA cobra 10", () => {
+  it("with the cap on, the right tail does not fall: at 0.74 PGA receives 10", () => {
     expect(guiltMass(beliefs(0.74), CAP_ON)).toBeCloseTo(13, 10);
     expect(choose("PGA", SENS, binding(0.74), CAP_ON)).toBe("roll");
     expect(playPure("PGA", 0.74, CAP_ON).stats.meanDeciderPayoff).toBe(10);
     expect(playPure("PGA", 0.05, CAP_ON).stats.meanDeciderPayoff).toBe(5);
   });
 
-  it("en las dos colas, clavar la creencia extingue a PGA", () => {
+  it("in both tails, pinning the belief drives PGA extinct", () => {
     expect(evolvePinned(0.05, 200, "cola-baja").PGA).toBe(0);
     expect(evolvePinned(0.74, 200, "cola-alta").PGA).toBe(0);
   });

@@ -3,8 +3,8 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
   test: {
     include: ["test/**/*.test.ts"],
-    // La grilla y las 400 generaciones viven en ese archivo para poder
-    // repetirlas. No son regresión: `curve.test.ts` fija el veredicto.
+    // The grid and the 400-generation runs live in that file so they can be
+    // repeated. They are not the regression: `curve.test.ts` locks the verdict.
     exclude: [
       "test/curve-sweep.test.ts",
       "**/node_modules/**",
