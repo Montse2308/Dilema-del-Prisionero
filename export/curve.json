@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "provenance": {
     "engineRepo": "Montse2308/Dilema-del-Prisionero",
-    "engineCommit": "cb781e29bcafffa1608d46798241109baa7e1497",
-    "generatedAt": "2026-09-25T21:39:44.126Z",
+    "engineCommit": "68bc4bac4502257aeffb195a8890f6901a980f7d",
+    "generatedAt": "2026-09-25T21:42:48.667Z",
     "node": "v24.11.0",
     "command": "npm run export:curve",
     "rngSeed": "grilla"
@@ -257,6 +257,29 @@
     },
     {
       "beta0": {
+        "num": 38,
+        "den": 100
+      },
+      "guilt": {
+        "num": 1444,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": true,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 10,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
         "num": 40,
         "den": 100
       },
@@ -432,29 +455,6 @@
       },
       "payoff": {
         "PGA": 5,
-        "MC-b": 10,
-        "GA": 10
-      },
-      "robustness": {
-        "payoffPgaCapOn": 10
-      }
-    },
-    {
-      "beta0": {
-        "num": 38,
-        "den": 100
-      },
-      "guilt": {
-        "num": 1444,
-        "den": 100
-      },
-      "rolls": {
-        "PGA": true,
-        "MC-b": true,
-        "GA": true
-      },
-      "payoff": {
-        "PGA": 10,
         "MC-b": 10,
         "GA": 10
       },
