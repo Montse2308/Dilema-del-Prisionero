@@ -21,7 +21,8 @@
  *   axis           The x axis: beta0 from 0 to beta1, as exact fractions.
  *   peak           beta0 at the guilt maximum, peakBeta0(beta1) = beta1 / 2.
  *   series         Series ids and their role: "main" or "control".
- *   grid           18 rows: beta0 = 0, 0.05, …, 0.75, then the peak and beta1.
+ *   grid           18 rows, ascending in beta0: 0, 0.05, …, 0.75 with the peak
+ *                  (0.38) and beta1 (0.76) in place.
  *     beta0          Exact fraction over 100.
  *     guilt          guiltMass with the cap off, a(76 − a)/100 with a = beta0 in hundredths.
  *     rolls          Whether `choose` rolls, per series, with the promise binding the partner.

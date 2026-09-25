@@ -13,8 +13,8 @@ import {
  * Regression on `export/curve.json`: the data recomputed from the kernel must
  * match the committed file in everything but `provenance`.
  *
- * The file is loaded with a glob so the suite still typechecks and runs before
- * the first export exists; in that case the comparison is skipped, not passed.
+ * The file is loaded with a glob so the suite still typechecks before the first
+ * export exists; the comparison then fails and says how to produce it.
  */
 
 const found = import.meta.glob("../export/curve.json", { eager: true, import: "default" });
@@ -29,8 +29,11 @@ function row(a: number): CurveRow {
 }
 
 describe("exported curve", () => {
-  it.skipIf(exported === undefined)("matches export/curve.json except provenance", () => {
-    const { provenance: _provenance, ...rest } = exported ?? {};
+  it("matches export/curve.json except provenance", () => {
+    if (exported === undefined) {
+      throw new Error("export/curve.json not found: run npm run export:curve");
+    }
+    const { provenance: _provenance, ...rest } = exported;
     expect(rest).toStrictEqual({
       schemaVersion: CURVE_SCHEMA_VERSION,
       params: data.params,
@@ -42,9 +45,15 @@ describe("exported curve", () => {
     });
   });
 
-  it("has 18 rows, the steps of 0.05 then the peak and beta1", () => {
+  it("has 18 rows, strictly ascending in beta0", () => {
+    expect(data.grid).toHaveLength(18);
+    for (let i = 1; i < data.grid.length; i += 1) {
+      const prev = data.grid[i - 1]!.beta0;
+      const next = data.grid[i]!.beta0;
+      expect(prev.num * next.den).toBeLessThan(next.num * prev.den);
+    }
     expect(data.grid.map((r) => r.beta0.num)).toEqual([
-      0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 38, 76,
+      0, 5, 10, 15, 20, 25, 30, 35, 38, 40, 45, 50, 55, 60, 65, 70, 75, 76,
     ]);
     expect(data.peak).toEqual({ num: 38, den: 100 });
   });

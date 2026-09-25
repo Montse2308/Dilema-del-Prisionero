@@ -130,10 +130,10 @@ export function measureRow(a: number): CurveRow {
   };
 }
 
-/** β₀ in hundredths: 0, 5, …, 75, then the peak (38) and β₁ (76). */
+/** β₀ in hundredths, ascending: 0, 5, …, 75 with the peak (38) and β₁ (76) in place. */
 export function gridHundredths(): number[] {
   const steps = Array.from({ length: 16 }, (_, i) => i * 5);
-  return [...steps, peakHundredths(), BETA1_HUNDREDTHS];
+  return [...steps, peakHundredths(), BETA1_HUNDREDTHS].sort((x, y) => x - y);
 }
 
 export function buildCurveData() {
