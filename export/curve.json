@@ -1,0 +1,489 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "engineRepo": "Montse2308/Dilema-del-Prisionero",
+    "engineCommit": "cb781e29bcafffa1608d46798241109baa7e1497",
+    "generatedAt": "2026-09-25T21:39:44.126Z",
+    "node": "v24.11.0",
+    "command": "npm run export:curve",
+    "rngSeed": "grilla"
+  },
+  "params": {
+    "game": "trust",
+    "sens": {
+      "theta": 0.6,
+      "c": 5
+    },
+    "beta1": {
+      "num": 76,
+      "den": 100
+    },
+    "r": 0,
+    "phi": 1,
+    "s": 0,
+    "p": 1,
+    "observation": "rational",
+    "beta1Kind": "entered",
+    "w": 0.5,
+    "encounters": 1,
+    "population": {
+      "kind": "pure",
+      "size": 8
+    },
+    "seed": "grilla",
+    "cap": {
+      "enabled": false,
+      "outsideOption": 5
+    },
+    "capRobustness": {
+      "enabled": true,
+      "outsideOption": 5
+    }
+  },
+  "note": "Comparison across worlds with background trust held fixed at each value; not a trajectory of one population.",
+  "axis": {
+    "id": "beta0",
+    "min": {
+      "num": 0,
+      "den": 100
+    },
+    "max": {
+      "num": 76,
+      "den": 100
+    }
+  },
+  "peak": {
+    "num": 38,
+    "den": 100
+  },
+  "series": [
+    {
+      "id": "PGA",
+      "role": "main"
+    },
+    {
+      "id": "MC-b",
+      "role": "main"
+    },
+    {
+      "id": "GA",
+      "role": "control"
+    }
+  ],
+  "grid": [
+    {
+      "beta0": {
+        "num": 0,
+        "den": 100
+      },
+      "guilt": {
+        "num": 0,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": false,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 5,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 5
+      }
+    },
+    {
+      "beta0": {
+        "num": 5,
+        "den": 100
+      },
+      "guilt": {
+        "num": 355,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": false,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 5,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 5
+      }
+    },
+    {
+      "beta0": {
+        "num": 10,
+        "den": 100
+      },
+      "guilt": {
+        "num": 660,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": false,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 5,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 5
+      }
+    },
+    {
+      "beta0": {
+        "num": 15,
+        "den": 100
+      },
+      "guilt": {
+        "num": 915,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": true,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 10,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 20,
+        "den": 100
+      },
+      "guilt": {
+        "num": 1120,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": true,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 10,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 25,
+        "den": 100
+      },
+      "guilt": {
+        "num": 1275,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": true,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 10,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 30,
+        "den": 100
+      },
+      "guilt": {
+        "num": 1380,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": true,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 10,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 35,
+        "den": 100
+      },
+      "guilt": {
+        "num": 1435,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": true,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 10,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 40,
+        "den": 100
+      },
+      "guilt": {
+        "num": 1440,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": true,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 10,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 45,
+        "den": 100
+      },
+      "guilt": {
+        "num": 1395,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": true,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 10,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 50,
+        "den": 100
+      },
+      "guilt": {
+        "num": 1300,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": true,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 10,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 55,
+        "den": 100
+      },
+      "guilt": {
+        "num": 1155,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": true,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 10,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 60,
+        "den": 100
+      },
+      "guilt": {
+        "num": 960,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": true,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 10,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 65,
+        "den": 100
+      },
+      "guilt": {
+        "num": 715,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": true,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 10,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 70,
+        "den": 100
+      },
+      "guilt": {
+        "num": 420,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": false,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 5,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 75,
+        "den": 100
+      },
+      "guilt": {
+        "num": 75,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": false,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 5,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 38,
+        "den": 100
+      },
+      "guilt": {
+        "num": 1444,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": true,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 10,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    },
+    {
+      "beta0": {
+        "num": 76,
+        "den": 100
+      },
+      "guilt": {
+        "num": 0,
+        "den": 100
+      },
+      "rolls": {
+        "PGA": false,
+        "MC-b": true,
+        "GA": true
+      },
+      "payoff": {
+        "PGA": 5,
+        "MC-b": 10,
+        "GA": 10
+      },
+      "robustness": {
+        "payoffPgaCapOn": 10
+      }
+    }
+  ]
+}
