@@ -1,0 +1,832 @@
+{
+  "schemaVersion": 1,
+  "id": "r2",
+  "claim": "GA fixates in 20 of 20 seeds at s = 0, 0.25 and 0.5.",
+  "provenance": {
+    "engineRepo": "Montse2308/Dilema-del-Prisionero",
+    "engineCommit": "841b4d82f127208bcdeb72757c74e298f5539db5",
+    "generatedAt": "2026-10-07T17:43:33.977Z",
+    "node": "v24.11.0",
+    "command": "npm run reproduce",
+    "durationMs": 13112
+  },
+  "params": {
+    "generations": 400,
+    "sValues": [
+      0,
+      0.25,
+      0.5
+    ],
+    "run": {
+      "game": "trust",
+      "size": 200,
+      "phi": 0.5,
+      "protocol": "reciprocal",
+      "messages": {
+        "agreement": 0.25,
+        "deciderOnly": 0.25,
+        "partnerOnly": 0.25,
+        "none": 0.25
+      },
+      "s": 0,
+      "p": 1,
+      "w": 0.5,
+      "r": 0,
+      "sens": {
+        "theta": 0.6,
+        "c": 5
+      },
+      "encounters": 4,
+      "beta1Init": 0.76,
+      "observation": "rational",
+      "beta1Kind": "entered",
+      "cap": {
+        "enabled": true,
+        "outsideOption": 5
+      },
+      "capSource": "capForGame"
+    },
+    "initialPopulation": "uniform over SELF, GA, PGA, MC-a, MC-b (as run())",
+    "opening": "all four cells at beta1Init",
+    "harnessCheck": "the same loop with openingCells reproduces run() on the first seed of each s"
+  },
+  "seeds": [
+    "r10-0",
+    "r10-1",
+    "r10-2",
+    "r10-3",
+    "r10-4",
+    "r10-5",
+    "r10-6",
+    "r10-7",
+    "r10-8",
+    "r10-9",
+    "r10-10",
+    "r10-11",
+    "r10-12",
+    "r10-13",
+    "r10-14",
+    "r10-15",
+    "r10-16",
+    "r10-17",
+    "r10-18",
+    "r10-19"
+  ],
+  "summary": [
+    {
+      "s": 0,
+      "seeds": 20,
+      "meanCount": {
+        "SELF": 0,
+        "GA": 200,
+        "PGA": 0,
+        "MC-a": 0,
+        "MC-b": 0
+      },
+      "sharePct": {
+        "SELF": 0,
+        "GA": 100,
+        "PGA": 0,
+        "MC-a": 0,
+        "MC-b": 0
+      },
+      "fixated": {
+        "SELF": 0,
+        "GA": 20,
+        "PGA": 0,
+        "MC-a": 0,
+        "MC-b": 0
+      },
+      "unfixed": 0
+    },
+    {
+      "s": 0.25,
+      "seeds": 20,
+      "meanCount": {
+        "SELF": 0,
+        "GA": 200,
+        "PGA": 0,
+        "MC-a": 0,
+        "MC-b": 0
+      },
+      "sharePct": {
+        "SELF": 0,
+        "GA": 100,
+        "PGA": 0,
+        "MC-a": 0,
+        "MC-b": 0
+      },
+      "fixated": {
+        "SELF": 0,
+        "GA": 20,
+        "PGA": 0,
+        "MC-a": 0,
+        "MC-b": 0
+      },
+      "unfixed": 0
+    },
+    {
+      "s": 0.5,
+      "seeds": 20,
+      "meanCount": {
+        "SELF": 0,
+        "GA": 200,
+        "PGA": 0,
+        "MC-a": 0,
+        "MC-b": 0
+      },
+      "sharePct": {
+        "SELF": 0,
+        "GA": 100,
+        "PGA": 0,
+        "MC-a": 0,
+        "MC-b": 0
+      },
+      "fixated": {
+        "SELF": 0,
+        "GA": 20,
+        "PGA": 0,
+        "MC-a": 0,
+        "MC-b": 0
+      },
+      "unfixed": 0
+    }
+  ],
+  "runs": [
+    {
+      "s": 0,
+      "results": [
+        {
+          "seed": "r10-0",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-1",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-2",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-3",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-4",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-5",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-6",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-7",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-8",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-9",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-10",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-11",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-12",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-13",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-14",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-15",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-16",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-17",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-18",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-19",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        }
+      ]
+    },
+    {
+      "s": 0.25,
+      "results": [
+        {
+          "seed": "r10-0",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-1",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-2",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-3",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-4",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-5",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-6",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-7",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-8",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-9",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-10",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-11",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-12",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-13",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-14",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-15",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-16",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-17",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-18",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-19",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        }
+      ]
+    },
+    {
+      "s": 0.5,
+      "results": [
+        {
+          "seed": "r10-0",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-1",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-2",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-3",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-4",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-5",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-6",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-7",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-8",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-9",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-10",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-11",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-12",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-13",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-14",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-15",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-16",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-17",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-18",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        },
+        {
+          "seed": "r10-19",
+          "counts": {
+            "SELF": 0,
+            "GA": 200,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "GA"
+        }
+      ]
+    }
+  ]
+}
