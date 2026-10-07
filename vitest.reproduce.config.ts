@@ -6,6 +6,8 @@ export default defineConfig({
   test: {
     include: ["scripts/reproduce/r[1-6]-*.ts"],
     fileParallelism: false,
+    // Print each run's summary even though the run passes.
+    silent: false,
     testTimeout: 3_600_000,
   },
 });

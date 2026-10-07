@@ -49,6 +49,7 @@ it("R1 — protocol null", () => {
     const bySeed: Record<Protocol, SeedResult[]> = { unilateral: [], reciprocal: [] };
     let samePopulation = 0;
     let sameTrajectory = 0;
+    const trajectoryDiffers: string[] = [];
     for (const seed of SEEDS) {
       const [a, b] = PROTOCOLS.map((protocol) => run(paramsFor(protocol, s), GENERATIONS, seed));
       if (a === undefined || b === undefined) throw new Error("missing run");
@@ -61,6 +62,7 @@ it("R1 — protocol null", () => {
       });
       if (population) samePopulation += 1;
       if (trajectory) sameTrajectory += 1;
+      else trajectoryDiffers.push(seed);
     }
     const unilateral = summarize(bySeed.unilateral, 200);
     const reciprocal = summarize(bySeed.reciprocal, 200);
@@ -70,6 +72,7 @@ it("R1 — protocol null", () => {
       reciprocal,
       seedsWithSameFinalPopulation: samePopulation,
       seedsWithSameCensusEveryGeneration: sameTrajectory,
+      seedsWhoseCensusDiffersAtSomeGeneration: trajectoryDiffers,
     });
     runs.push({ s, ...bySeed });
     lines.push(formatSummary(`s=${s} unilateral`, unilateral, "meanCount"));
