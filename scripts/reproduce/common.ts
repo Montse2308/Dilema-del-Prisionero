@@ -128,7 +128,7 @@ export function round(value: number, digits: number): number {
 /** One line per summary, for the console. */
 export function formatSummary(label: string, summary: Summary, field: "meanCount" | "sharePct"): string {
   const unit = field === "sharePct" ? "%" : "";
-  const cells = SPECS.map((spec) => `${spec} ${summary[field][spec].toFixed(1)}${unit}`);
+  const cells = SPECS.map((spec) => `${spec} ${summary[field][spec].toFixed(2)}${unit}`);
   const fixed = SPECS.filter((spec) => summary.fixated[spec] > 0)
     .map((spec) => `${spec} ${summary.fixated[spec]}`)
     .join(", ");

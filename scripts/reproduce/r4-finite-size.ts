@@ -48,7 +48,7 @@ it("R4 — finite-size scaling", () => {
     [
       `R4 — finite-size scaling at s = ${S} (mean final share, % of N)`,
       ...lines,
-      `PGA share by N: ${pga.map((v) => v.toFixed(1)).join(" → ")} %; rises with N: ${rises}`,
+      `PGA share by N: ${pga.map((v) => v.toFixed(2)).join(" → ")} %; rises with N: ${rises}`,
     ].join("\n"),
   );
   write("r4", "finite-size", clock, {
