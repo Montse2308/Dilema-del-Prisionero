@@ -35,7 +35,7 @@ npm install
 npm test
 ```
 
-`npm test` typechecks, then runs the regression suite. `test/curve-sweep.test.ts` is excluded from that suite. It repeats the long grid. `test/curve.test.ts` locks the verdict: if the hump breaks, the suite fails.
+`npm test` typechecks, then runs the regression suite. `test/curve.test.ts` locks the verdict: if the hump breaks, the suite fails. The long runs are not in the suite; see [Reproducing the results](#reproducing-the-results).
 
 ## Reproducing the results
 

@@ -13,8 +13,8 @@
  *   provenance     engineRepo, engineCommit (`git rev-parse HEAD`), generatedAt
  *                  (ISO 8601 UTC), node (`process.version`), command, rngSeed.
  *                  The only part that is not compared by `test/curve-export.test.ts`.
- *   params         The measurement parameters. Same as the "grid" section of
- *                  `test/curve-sweep.test.ts`. beta1 is an exact fraction.
+ *   params         The measurement parameters, from `scripts/curve-data.ts`.
+ *                  beta1 is an exact fraction.
  *                  cap is the cap used for every column but the robustness one;
  *                  capRobustness is the cap used for that one.
  *   note           What the curve is and what it is not.

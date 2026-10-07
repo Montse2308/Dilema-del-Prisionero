@@ -17,8 +17,8 @@ import {
 /**
  * The payoff curve against background trust, as data.
  *
- * Same measurement and parameters as the "grid" section of
- * `test/curve-sweep.test.ts`. Pure: no Node builtins, no clock, no I/O.
+ * The grid that `test/curve-sweep.test.ts` printed before it was removed, with
+ * the same measurement and parameters. Pure: no Node builtins, no clock, no I/O.
  * Every number is either an exact fraction over 100 or an asserted integer.
  */
 

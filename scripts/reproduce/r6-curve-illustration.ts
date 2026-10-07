@@ -3,13 +3,14 @@
  *
  *   npm run reproduce:r6
  *
- * The long runs of `test/curve-sweep.test.ts`, unchanged: N = 200, 400
+ * The long runs of `test/curve-sweep.test.ts` as measured at 6f59bad,
+ * unchanged. That file has been removed; this script replaces it. N = 200, 400
  * generations, 4 encounters, half PGA and half MC-b, φ = 1, s = 0, cap off,
  * and the belief put back to (β₀, 0.76) after every generation. Seeds
  * q9-0 … q9-19 at β₀ ∈ {0.05, 0.38, 0.74}, and q9b-0 … q9b-39 at 0.38 only.
  *
  * These are not the common parameters of the other runs: φ = 1 and the cap
- * off are what the curve test uses.
+ * off are what that test used.
  */
 import { it } from "vitest";
 import {
@@ -47,7 +48,7 @@ const PARAMS: MoranParams = {
   beta1Kind: "entered",
 };
 
-/** `evolve` of `test/curve-sweep.test.ts`. */
+/** `evolve` of the removed `test/curve-sweep.test.ts`. */
 function evolve(beta0: number, seed: string): SeedResult {
   const rng = makeRng(seed);
   let state: MoranState = {
@@ -108,7 +109,7 @@ it("R6 — curve illustration", () => {
       beta1Held: BETA1_INIT,
       initialPopulation: "half PGA, half MC-b, alternating (uniformPopulation(200, [PGA, MC-b]))",
       beliefs: "put back to (beta0, beta1Held) after every generation",
-      source: "test/curve-sweep.test.ts, evolve()",
+      source: "evolve() of test/curve-sweep.test.ts, as of 6f59bad; that file was removed and this script replaces it",
     },
     seeds: { q9: SEEDS, q9b: EXTRA_SEEDS },
     summary,

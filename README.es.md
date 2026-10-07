@@ -33,7 +33,7 @@ npm install
 npm test
 ```
 
-`npm test` revisa los tipos y después corre la suite de regresión. `test/curve-sweep.test.ts` queda fuera de esa suite. Repite la grilla larga. `test/curve.test.ts` fija el veredicto: si la loma se rompe, la suite falla.
+`npm test` revisa los tipos y después corre la suite de regresión. `test/curve.test.ts` fija el veredicto: si la loma se rompe, la suite falla. Las corridas largas no están en la suite; ver [Cómo reproducir los resultados](#cómo-reproducir-los-resultados).
 
 ## Cómo reproducir los resultados
 
