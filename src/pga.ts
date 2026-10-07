@@ -58,7 +58,9 @@ export function pgaThreshold(beliefs: Beliefs, cap: GuiltCap = CAP_OFF): number 
  * Short form, only for the laboratory partner switch.
  *
  * Full disappointment, in money. Not the product.
- * At Vanberg's belief 0.76 the threshold is 4/7.6 ≈ 0.53, the same number as general guilt.
+ * At 0.76, the mean second-order belief of deciders without a partner switch
+ * in Vanberg (2008, Table I), the threshold is 4/7.6 ≈ 0.53, the same number
+ * as general guilt.
  * The population comparison does not use this number.
  */
 export function labDisappointment(partnerExpectation: number): number {

@@ -58,7 +58,7 @@ export function randomPopulation(
  *
  *   "entered"    — only encounters in which the decider got to act.
  *                  What a real receiver could observe. This is the default,
- *                  and the one the manuscript uses.
+ *                  and the one the working paper uses.
  *   "structural" — everyone, including people the first mover did not let in.
  *                  A diagnostic. The two are not interchangeable: with high `s`,
  *                  "entered" sends β₁ to 1, and that is what keeps general guilt alive there.

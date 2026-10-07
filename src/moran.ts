@@ -96,7 +96,10 @@ export type MoranParams = {
   cap?: GuiltCap;
   /** Encounters per agent per generation. More encounters, less sampling noise. */
   encounters?: number;
-  /** Initial β₁. 0.76 is the second-order belief Vanberg measured. */
+  /**
+   * Initial β₁. 0.76 is the mean second-order belief of deciders without a
+   * partner switch in Vanberg (2008, Table I).
+   */
   beta1Init?: number;
   /** Default "rational". */
   observation?: ObservationMode;
