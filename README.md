@@ -37,6 +37,30 @@ npm test
 
 `npm test` typechecks, then runs the regression suite. `test/curve-sweep.test.ts` is excluded from that suite. It repeats the long grid. `test/curve.test.ts` locks the verdict: if the hump breaks, the suite fails.
 
+## Reproducing the results
+
+The runs behind the numbers in the working paper are scripts, not tests. They go through Vitest with their own config, `vitest.reproduce.config.ts`, like `npm run export:curve`. `npm test` and CI do not run them.
+
+```bash
+npm run reproduce        # all six, one after another
+npm run reproduce:r1     # one run: r1 … r6
+```
+
+| Command | Result | Time |
+| --- | --- | --- |
+| `npm run reproduce:r1` | Protocol null: unilateral against reciprocal at `s` ∈ {0, 0.25, 0.5}, N = 200, seed by seed | ~20 s |
+| `npm run reproduce:r2` | The reciprocal run of R1 with all four cells opening at 0.76 | ~13 s |
+| `npm run reproduce:r3` | The `s` axis, from 0 to 1, N = 200 | ~15 s |
+| `npm run reproduce:r4` | Finite-size scaling at `s` = 0.42, N = 100, 200, 400 | ~8 s |
+| `npm run reproduce:r5` | Structural against entered β₁ at `s` = 0.60 and 1 | ~7 s |
+| `npm run reproduce:r6` | The curve as an evolutionary illustration: PGA against MC-b with background trust held at β₀ ∈ {0.05, 0.38, 0.74} | ~17 s |
+
+Times are from one laptop with Node 24. All six take about a minute and a half.
+
+Each run prints a summary and writes `results/<id>-<name>.json`: provenance (commit, Node version, command, date, duration), every parameter, the seeds, the summary, and the final census of every seed. A run aborts if the working tree has changes outside `results/`, so the commit in the file is the code that produced it. The JSON files are versioned. The ones in the repository come from the commit each one names.
+
+The seed names for R3–R5 were not recorded with the original runs. These runs use `s-axis-0` … `s-axis-19`, 400 generations and 2 encounters per agent, so their numbers are not the ones in the text. The JSON files say what these seeds give.
+
 ## What is in the code
 
 | Path | Role |

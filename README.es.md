@@ -35,6 +35,30 @@ npm test
 
 `npm test` revisa los tipos y después corre la suite de regresión. `test/curve-sweep.test.ts` queda fuera de esa suite. Repite la grilla larga. `test/curve.test.ts` fija el veredicto: si la loma se rompe, la suite falla.
 
+## Cómo reproducir los resultados
+
+Las corridas detrás de los números del documento de trabajo son scripts, no tests. Pasan por Vitest con su propia configuración, `vitest.reproduce.config.ts`, igual que `npm run export:curve`. Ni `npm test` ni CI las corren.
+
+```bash
+npm run reproduce        # las seis, una tras otra
+npm run reproduce:r1     # una corrida: r1 … r6
+```
+
+| Comando | Resultado | Tiempo |
+| --- | --- | --- |
+| `npm run reproduce:r1` | Nulo del protocolo: unilateral contra recíproco en `s` ∈ {0, 0.25, 0.5}, N = 200, semilla por semilla | ~20 s |
+| `npm run reproduce:r2` | La corrida recíproca de R1 con las cuatro celdas abriendo en 0.76 | ~13 s |
+| `npm run reproduce:r3` | El eje `s`, de 0 a 1, N = 200 | ~15 s |
+| `npm run reproduce:r4` | Finite-size scaling en `s` = 0.42, N = 100, 200, 400 | ~8 s |
+| `npm run reproduce:r5` | β₁ estructural contra β₁ de entrada en `s` = 0.60 y 1 | ~7 s |
+| `npm run reproduce:r6` | La curva como ilustración evolutiva: PGA contra MC-b con la confianza de fondo fija en β₀ ∈ {0.05, 0.38, 0.74} | ~17 s |
+
+Los tiempos son de una laptop con Node 24. Las seis tardan alrededor de minuto y medio.
+
+Cada corrida imprime un resumen y escribe `results/<id>-<nombre>.json`: procedencia (commit, versión de Node, comando, fecha, duración), todos los parámetros, las semillas, el resumen y el censo final de cada semilla. Una corrida se detiene si el árbol de trabajo tiene cambios fuera de `results/`, para que el commit del archivo sea el código que lo produjo. Los JSON están versionados. Los del repositorio vienen del commit que cada uno nombra.
+
+Los nombres de las semillas de R3–R5 no quedaron registrados con las corridas originales. Estas corridas usan `s-axis-0` … `s-axis-19`, 400 generaciones y 2 encuentros por agente, así que sus números no son los del texto. Los JSON dicen lo que dan estas semillas.
+
 ## Qué hay en el código
 
 | Ruta | Papel |
