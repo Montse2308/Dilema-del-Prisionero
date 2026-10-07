@@ -4,11 +4,11 @@
   "claim": "Both protocols give the same population seed by seed. Mean final count over 200: s = 0 → GA 57.0, PGA 49.4, MC-a 30.8, MC-b 62.9; s = 0.25 → PGA 112.4, MC-b 87.6; s = 0.5 → GA 133.9, MC-a 66.2.",
   "provenance": {
     "engineRepo": "Montse2308/Dilema-del-Prisionero",
-    "engineCommit": "b5b222a41d30afe446a4f03e197a23933d5f3536",
-    "generatedAt": "2026-10-07T18:03:42.366Z",
+    "engineCommit": "7f5804175aabf9908b57177d15feadc2c3c957e8",
+    "generatedAt": "2026-10-07T18:30:07.565Z",
     "node": "v24.11.0",
     "command": "npm run reproduce",
-    "durationMs": 19536
+    "durationMs": 19813
   },
   "params": {
     "generations": 400,

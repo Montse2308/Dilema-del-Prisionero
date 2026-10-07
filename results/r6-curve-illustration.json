@@ -4,11 +4,11 @@
   "claim": "PGA goes extinct in 20 of 20 at β₀ = 0.05 and 0.74. At 0.38 the mean PGA count is 57.75 of 200; in the q9b batch it is 94.45.",
   "provenance": {
     "engineRepo": "Montse2308/Dilema-del-Prisionero",
-    "engineCommit": "b5b222a41d30afe446a4f03e197a23933d5f3536",
-    "generatedAt": "2026-10-07T18:03:58.262Z",
+    "engineCommit": "7f5804175aabf9908b57177d15feadc2c3c957e8",
+    "generatedAt": "2026-10-07T18:30:22.360Z",
     "node": "v24.11.0",
     "command": "npm run reproduce",
-    "durationMs": 15655
+    "durationMs": 14570
   },
   "params": {
     "generations": 400,

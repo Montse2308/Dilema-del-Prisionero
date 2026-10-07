@@ -4,11 +4,11 @@
   "claim": "GA fixates in 20 of 20 seeds at s = 0, 0.25 and 0.5.",
   "provenance": {
     "engineRepo": "Montse2308/Dilema-del-Prisionero",
-    "engineCommit": "b5b222a41d30afe446a4f03e197a23933d5f3536",
-    "generatedAt": "2026-10-07T18:09:17.907Z",
+    "engineCommit": "7f5804175aabf9908b57177d15feadc2c3c957e8",
+    "generatedAt": "2026-10-07T18:30:33.830Z",
     "node": "v24.11.0",
     "command": "npm run reproduce",
-    "durationMs": 11216
+    "durationMs": 11226
   },
   "params": {
     "generations": 400,

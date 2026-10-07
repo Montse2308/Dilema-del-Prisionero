@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
   "id": "r4",
-  "claim": "pending text update",
+  "claim": "At s = 0.42, as N goes from 100 to 200 to 400, PGA goes extinct in 158, 71 and 22 of 200 runs, unfixed runs go from 5 to 79 to 157, and the mean share of PGA rises from 19.7 to 43.0 to 47.4%.",
   "configNote": "the encounters and seeds of the original exploratory runs were not recorded; these runs fix 4 encounters, as the engine cut and R1, and 200 seeds",
   "provenance": {
     "engineRepo": "Montse2308/Dilema-del-Prisionero",
-    "engineCommit": "b5b222a41d30afe446a4f03e197a23933d5f3536",
-    "generatedAt": "2026-10-07T18:12:56.485Z",
+    "engineCommit": "7f5804175aabf9908b57177d15feadc2c3c957e8",
+    "generatedAt": "2026-10-07T18:29:47.511Z",
     "node": "v24.11.0",
     "command": "npm run reproduce",
-    "durationMs": 100715
+    "durationMs": 102447
   },
   "params": {
     "generations": 400,

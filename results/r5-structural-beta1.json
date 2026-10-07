@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
   "id": "r5",
-  "claim": "pending text update",
+  "claim": "Above s = 1/2, with the structural definition GA is left at 11.4% (s = 0.60) and 8.1% (s = 1); with the entered definition, 46.6% at both.",
   "configNote": "the encounters and seeds of the original exploratory runs were not recorded; these runs fix 4 encounters, as the engine cut and R1, and 200 seeds",
   "provenance": {
     "engineRepo": "Montse2308/Dilema-del-Prisionero",
-    "engineCommit": "b5b222a41d30afe446a4f03e197a23933d5f3536",
-    "generatedAt": "2026-10-07T18:11:15.547Z",
+    "engineCommit": "7f5804175aabf9908b57177d15feadc2c3c957e8",
+    "generatedAt": "2026-10-07T18:28:04.685Z",
     "node": "v24.11.0",
     "command": "npm run reproduce",
-    "durationMs": 117426
+    "durationMs": 113814
   },
   "params": {
     "generations": 400,

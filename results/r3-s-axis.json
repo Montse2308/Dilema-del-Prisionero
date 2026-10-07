@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
   "id": "r3",
-  "claim": "pending text update",
+  "claim": "With N = 200, 400 generations, 4 encounters and 200 seeds: MC-b fixes in all seeds at s = 0.49 and in none at 0.50; 0.50, 0.75 and 1 give the same population; the share of PGA falls from 53.3% at 0.40 and 43.0% at 0.42 to 4.8% at 0.44 and 0 at 0.49.",
   "configNote": "the encounters and seeds of the original exploratory runs were not recorded; these runs fix 4 encounters, as the engine cut and R1, and 200 seeds",
   "provenance": {
     "engineRepo": "Montse2308/Dilema-del-Prisionero",
-    "engineCommit": "b5b222a41d30afe446a4f03e197a23933d5f3536",
-    "generatedAt": "2026-10-07T18:09:06.427Z",
+    "engineCommit": "7f5804175aabf9908b57177d15feadc2c3c957e8",
+    "generatedAt": "2026-10-07T18:26:10.558Z",
     "node": "v24.11.0",
     "command": "npm run reproduce",
-    "durationMs": 307888
+    "durationMs": 254463
   },
   "params": {
     "generations": 400,
