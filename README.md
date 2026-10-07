@@ -6,7 +6,9 @@
 
 Finite-population simulation, in TypeScript, of why a promise is kept when keeping it no longer pays. Vanberg's partner switch separates belief-dependent motives from word-dependent ones, and it leaves personal guilt and partner-specific commitment together. This repository is the engine behind that comparison.
 
-Manuscript in preparation. The code checks the two claims below. It does not fit laboratory percentages.
+Working paper: *Promises to whom: Identifying personal guilt and partner-specific commitment across populations* (SSRN, SSRN_URL_PENDING).
+
+The code checks the two claims below. It does not fit laboratory percentages.
 
 ## Result
 
@@ -49,9 +51,9 @@ npm test
 
 Selection copies the type. It does not copy θ or the cost of commitment.
 
-## Citation
+## How to cite
 
-See [`CITATION.cff`](CITATION.cff).
+Citation metadata for the code and the working paper is in [`CITATION.cff`](CITATION.cff). The DOI for the code will appear there when the first release is published.
 
 ## License
 

@@ -4,7 +4,9 @@
 
 Simulación de una población finita, en TypeScript, de por qué se cumple una promesa cuando ya no conviene cumplirla. El cambio de pareja de Vanberg separa los motivos que dependen de una creencia de los que dependen de la palabra dada, y deja juntos a la culpa personal y al compromiso específico a la pareja. Este repositorio es el motor de esa comparación.
 
-Manuscrito en preparación. El código comprueba las dos afirmaciones de abajo. No ajusta porcentajes de laboratorio.
+Documento de trabajo: *Promises to whom: Identifying personal guilt and partner-specific commitment across populations* (SSRN, SSRN_URL_PENDING).
+
+El código comprueba las dos afirmaciones de abajo. No ajusta porcentajes de laboratorio.
 
 ## Resultado
 
@@ -47,9 +49,9 @@ npm test
 
 La selección copia el tipo. No copia θ ni el costo del compromiso.
 
-## Cita
+## Cómo citar
 
-Ver [`CITATION.cff`](CITATION.cff).
+Los datos para citar el código y el documento de trabajo están en [`CITATION.cff`](CITATION.cff). El DOI del código aparecerá ahí cuando se publique la primera release.
 
 ## Licencia
 
