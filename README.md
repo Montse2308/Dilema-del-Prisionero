@@ -14,7 +14,7 @@ The code checks the two claims below. It does not fit laboratory percentages.
 
 If the probability that the decider promises is held fixed, and the cells without a promise open at the derived prior, whether one party speaks or both do does not change who survives. The communication protocol does not select the preference.
 
-When the first mover observes the type, with the belief after a promise held at 0.76, without the outside-option cap, and with θ above 0.277, the material payoff to personal guilt is low at both ends of the population prior and high in the middle. The payoff to partner-specific commitment does not move. With the cap, the upper tail does not fall.
+When the first mover observes the type, with the belief that a promise will be kept held at 0.76, the mean second-order belief of deciders without a partner switch in Vanberg (2008, Table I), without the outside-option cap, and with θ above 0.277, the material payoff to personal guilt is low at both ends of the population prior and high in the middle. The payoff to partner-specific commitment does not move. With the cap, the upper tail does not fall.
 
 A partner-switch session observes one point. Comparing the payoff requires worlds with different priors. A single population does not trace that comparison.
 

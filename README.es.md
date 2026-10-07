@@ -12,7 +12,7 @@ El código comprueba las dos afirmaciones de abajo. No ajusta porcentajes de lab
 
 Si se mantiene fija la probabilidad de que el decisor prometa, y las celdas sin promesa abren en el prior derivado, da igual que hable uno o que hablen los dos: sobrevive la misma población. El protocolo de comunicación no elige la preferencia.
 
-Cuando quien mueve primero ve el tipo, con la creencia posterior fija en 0.76, sin el tope del outside option y con θ por encima de 0.277, el pago material de la culpa personal es bajo en los dos extremos del prior poblacional y alto en el medio. El del compromiso específico a la pareja no se mueve. Con el tope, la cola alta no baja.
+Cuando quien mueve primero ve el tipo, con la creencia de que la promesa se cumplirá fija en 0.76, el promedio de la creencia de segundo orden de los decisores sin cambio de pareja en Vanberg (2008, Tabla I), sin el tope del outside option y con θ por encima de 0.277, el pago material de la culpa personal es bajo en los dos extremos del prior poblacional y alto en el medio. El del compromiso específico a la pareja no se mueve. Con el tope, la cola alta no baja.
 
 Una sesión del cambio de pareja observa un punto. Comparar el pago exige mundos con distinto prior. Una sola población no recorre esa comparación.
 

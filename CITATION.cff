@@ -17,8 +17,10 @@ keywords:
 abstract: >-
   Finite-population simulation of personal guilt and partner-specific
   commitment. Holding fixed the probability that the decider promises, the
-  communication protocol does not select who survives. With the belief after
-  a promise held at 0.76, the first mover observing the type, the
-  outside-option cap off, and theta above 0.277, the material payoff to
-  personal guilt is low at both ends of the population prior and high in the
-  middle. The payoff to partner-specific commitment does not move.
+  communication protocol does not select who survives. With the belief
+  that a promise will be kept held at 0.76, the mean second-order belief
+  of deciders without a partner switch in Vanberg (2008, Table I), the
+  first mover observing the type, the outside-option cap off, and theta
+  above 0.277, the material payoff to personal guilt is low at both ends
+  of the population prior and high in the middle. The payoff to
+  partner-specific commitment does not move.
