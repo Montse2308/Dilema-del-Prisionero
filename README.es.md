@@ -46,18 +46,18 @@ npm run reproduce:r1     # una corrida: r1 … r6
 
 | Comando | Resultado | Tiempo |
 | --- | --- | --- |
-| `npm run reproduce:r1` | Nulo del protocolo: unilateral contra recíproco en `s` ∈ {0, 0.25, 0.5}, N = 200, semilla por semilla | ~20 s |
-| `npm run reproduce:r2` | La corrida recíproca de R1 con las cuatro celdas abriendo en 0.76 | ~13 s |
-| `npm run reproduce:r3` | El eje `s`, de 0 a 1, N = 200 | ~15 s |
-| `npm run reproduce:r4` | Finite-size scaling en `s` = 0.42, N = 100, 200, 400 | ~8 s |
-| `npm run reproduce:r5` | β₁ estructural contra β₁ de entrada en `s` = 0.60 y 1 | ~7 s |
-| `npm run reproduce:r6` | La curva como ilustración evolutiva: PGA contra MC-b con la confianza de fondo fija en β₀ ∈ {0.05, 0.38, 0.74} | ~17 s |
+| `npm run reproduce:r1` | Nulo del protocolo: unilateral contra recíproco en `s` ∈ {0, 0.25, 0.5}, N = 200, 20 semillas, semilla por semilla | ~20 s |
+| `npm run reproduce:r2` | La corrida recíproca de R1 con las cuatro celdas abriendo en 0.76 | ~11 s |
+| `npm run reproduce:r3` | El eje `s`, de 0 a 1, N = 200, 200 semillas | ~5 min |
+| `npm run reproduce:r4` | Finite-size scaling en `s` = 0.42, N = 100, 200, 400, 200 semillas | ~1.5 min |
+| `npm run reproduce:r5` | β₁ estructural contra β₁ de entrada en `s` = 0.60 y 1, 200 semillas | ~2 min |
+| `npm run reproduce:r6` | La curva como ilustración evolutiva: PGA contra MC-b con la confianza de fondo fija en β₀ ∈ {0.05, 0.38, 0.74} | ~16 s |
 
-Los tiempos son de una laptop con Node 24. Las seis tardan alrededor de minuto y medio.
+Los tiempos son de una laptop con Node 24. Las seis tardan alrededor de diez minutos.
 
-Cada corrida imprime un resumen y escribe `results/<id>-<nombre>.json`: procedencia (commit, versión de Node, comando, fecha, duración), todos los parámetros, las semillas, el resumen y el censo final de cada semilla. Una corrida se detiene si el árbol de trabajo tiene cambios fuera de `results/`, para que el commit del archivo sea el código que lo produjo. Los JSON están versionados. Los del repositorio vienen del commit que cada uno nombra.
+Cada corrida imprime un resumen y escribe `results/<id>-<nombre>.json`: procedencia (commit, versión de Node, comando, fecha, duración), todos los parámetros, las semillas, el resumen y el censo final de cada semilla. El resumen da, por tipo, la cuota final media con su intervalo al 95 %, las semillas en las que el tipo se extinguió, las fijaciones y las corridas sin fijar. Una corrida se detiene si el árbol de trabajo tiene cambios fuera de `results/`, para que el commit del archivo sea el código que lo produjo. Los JSON están versionados. Los del repositorio vienen del commit que cada uno nombra.
 
-Los nombres de las semillas de R3–R5 no quedaron registrados con las corridas originales. Estas corridas usan `s-axis-0` … `s-axis-19`, 400 generaciones y 2 encuentros por agente, así que sus números no son los del texto. Los JSON dicen lo que dan estas semillas.
+La configuración de las corridas exploratorias originales detrás de R3–R5 no quedó registrada. El documento de trabajo reporta estas corridas: 4 encuentros por agente, 400 generaciones y 200 semillas, `s-axis-0` … `s-axis-199`.
 
 ## Qué hay en el código
 
@@ -80,3 +80,11 @@ Los datos para citar el código y el documento de trabajo están en [`CITATION.c
 ## Licencia
 
 [MIT](LICENSE).
+
+## Lista para la release
+
+1. Reemplazar `SSRN_URL_PENDING` (README, README.es, `CITATION.cff`) y `date-released`; validar `CITATION.cff`.
+2. Merge a `main` sin squash ni rebase.
+3. Hacer público el repositorio y activarlo en Zenodo.
+4. Tag `v1.0.0` y publicar la release en GitHub.
+5. Agregar el DOI de Zenodo a `CITATION.cff` y a este README.

@@ -48,18 +48,18 @@ npm run reproduce:r1     # one run: r1 … r6
 
 | Command | Result | Time |
 | --- | --- | --- |
-| `npm run reproduce:r1` | Protocol null: unilateral against reciprocal at `s` ∈ {0, 0.25, 0.5}, N = 200, seed by seed | ~20 s |
-| `npm run reproduce:r2` | The reciprocal run of R1 with all four cells opening at 0.76 | ~13 s |
-| `npm run reproduce:r3` | The `s` axis, from 0 to 1, N = 200 | ~15 s |
-| `npm run reproduce:r4` | Finite-size scaling at `s` = 0.42, N = 100, 200, 400 | ~8 s |
-| `npm run reproduce:r5` | Structural against entered β₁ at `s` = 0.60 and 1 | ~7 s |
-| `npm run reproduce:r6` | The curve as an evolutionary illustration: PGA against MC-b with background trust held at β₀ ∈ {0.05, 0.38, 0.74} | ~17 s |
+| `npm run reproduce:r1` | Protocol null: unilateral against reciprocal at `s` ∈ {0, 0.25, 0.5}, N = 200, 20 seeds, seed by seed | ~20 s |
+| `npm run reproduce:r2` | The reciprocal run of R1 with all four cells opening at 0.76 | ~11 s |
+| `npm run reproduce:r3` | The `s` axis, from 0 to 1, N = 200, 200 seeds | ~5 min |
+| `npm run reproduce:r4` | Finite-size scaling at `s` = 0.42, N = 100, 200, 400, 200 seeds | ~1.5 min |
+| `npm run reproduce:r5` | Structural against entered β₁ at `s` = 0.60 and 1, 200 seeds | ~2 min |
+| `npm run reproduce:r6` | The curve as an evolutionary illustration: PGA against MC-b with background trust held at β₀ ∈ {0.05, 0.38, 0.74} | ~16 s |
 
-Times are from one laptop with Node 24. All six take about a minute and a half.
+Times are from one laptop with Node 24. All six take about ten minutes.
 
-Each run prints a summary and writes `results/<id>-<name>.json`: provenance (commit, Node version, command, date, duration), every parameter, the seeds, the summary, and the final census of every seed. A run aborts if the working tree has changes outside `results/`, so the commit in the file is the code that produced it. The JSON files are versioned. The ones in the repository come from the commit each one names.
+Each run prints a summary and writes `results/<id>-<name>.json`: provenance (commit, Node version, command, date, duration), every parameter, the seeds, the summary, and the final census of every seed. The summary gives, per type, the mean final share with its 95 % interval, the seeds in which the type went extinct, fixations, and unfixed runs. A run aborts if the working tree has changes outside `results/`, so the commit in the file is the code that produced it. The JSON files are versioned. The ones in the repository come from the commit each one names.
 
-The seed names for R3–R5 were not recorded with the original runs. These runs use `s-axis-0` … `s-axis-19`, 400 generations and 2 encounters per agent, so their numbers are not the ones in the text. The JSON files say what these seeds give.
+The configuration of the original exploratory runs behind R3–R5 was not recorded. The working paper reports these runs: 4 encounters per agent, 400 generations, and 200 seeds, `s-axis-0` … `s-axis-199`.
 
 ## What is in the code
 
@@ -82,3 +82,11 @@ Citation metadata for the code and the working paper is in [`CITATION.cff`](CITA
 ## License
 
 [MIT](LICENSE).
+
+## Release checklist
+
+1. Replace `SSRN_URL_PENDING` (README, README.es, `CITATION.cff`) and `date-released`; validate `CITATION.cff`.
+2. Merge to `main` without squash or rebase.
+3. Make the repository public and turn it on in Zenodo.
+4. Tag `v1.0.0` and publish the GitHub release.
+5. Add the Zenodo DOI to `CITATION.cff` and to this README.
