@@ -13,7 +13,14 @@
     "pretest": "npm run typecheck",
     "test": "vitest run",
     "test:watch": "vitest",
-    "export:curve": "vitest run --config vitest.export.config.ts"
+    "export:curve": "vitest run --config vitest.export.config.ts",
+    "reproduce": "vitest run --config vitest.reproduce.config.ts",
+    "reproduce:r1": "vitest run --config vitest.reproduce.config.ts r1-protocol-null",
+    "reproduce:r2": "vitest run --config vitest.reproduce.config.ts r2-open-at-076",
+    "reproduce:r3": "vitest run --config vitest.reproduce.config.ts r3-s-axis",
+    "reproduce:r4": "vitest run --config vitest.reproduce.config.ts r4-finite-size",
+    "reproduce:r5": "vitest run --config vitest.reproduce.config.ts r5-structural-beta1",
+    "reproduce:r6": "vitest run --config vitest.reproduce.config.ts r6-curve-illustration"
   },
   "devDependencies": {
     "@types/node": "^24.13.6",
