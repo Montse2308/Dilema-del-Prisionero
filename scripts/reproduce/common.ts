@@ -13,12 +13,18 @@
  * Each run writes `results/<id>-<name>.json`:
  *   schemaVersion  Version of this format. Bump it when a field changes meaning.
  *   id             r1 … r6.
- *   claim          What the text reports for this run, as the text states it.
+ *   claim          What the working paper states for this run, after the text was
+ *                  corrected to these runs; "pending text update" where that is
+ *                  not settled yet.
+ *   configNote     Present when the configuration of the original exploratory
+ *                  runs was not recorded and this run fixes it.
  *   provenance     engineRepo, engineCommit (`git rev-parse HEAD`), generatedAt
  *                  (ISO 8601 UTC), node (`process.version`), command, durationMs.
  *   params         Every parameter of the run, cap included.
  *   seeds          The seed names, in order.
- *   summary        The numbers compared against the text.
+ *   summary        Per type: mean final count, mean final share in % of N with
+ *                  its 95 % interval, seeds in which the type went extinct,
+ *                  fixations, and unfixed runs.
  *   runs           Final census and fixated type per seed and configuration.
  */
 import { execFileSync } from "node:child_process";
@@ -33,7 +39,7 @@ import {
   type Spec,
 } from "../../src/index.js";
 
-export const RESULTS_SCHEMA_VERSION = 1;
+export const RESULTS_SCHEMA_VERSION = 2;
 
 export const SENS = { theta: 0.6, c: 5 };
 export const BETA1_INIT = 0.76;
@@ -42,7 +48,7 @@ export const BETA1_INIT = 0.76;
  * Parameters shared by every run unless the run says otherwise.
  * `cap` is left out so it comes from `capForGame(TRUST)`: on, outside option 5.
  * `encounters: 2` and the uniform five-type population are those of
- * `test/motor.test.ts`; the runs that fix them say so.
+ * `test/motor.test.ts`. Every run here sets its own encounters: 4 in all of them.
  */
 export function baseParams(overrides: Partial<MoranParams> = {}): MoranParams {
   return {
@@ -96,6 +102,13 @@ export type Summary = {
   meanCount: Census;
   /** Mean final share per type, in percent of N. */
   sharePct: Census;
+  /**
+   * Half-width of the 95 % interval of sharePct: 1.96 · sd / √seeds, with sd
+   * the sample standard deviation (n − 1) of each seed's final share.
+   */
+  sharePctCi95: Census;
+  /** Seeds in which the type ended with 0 agents. */
+  extinct: Census;
   /** Seeds in which each type filled the population. */
   fixated: Census;
   /** Seeds in which several types still coexist. */
@@ -103,36 +116,61 @@ export type Summary = {
 };
 
 export function summarize(results: readonly SeedResult[], size: number): Summary {
-  const total = emptyCensus();
+  const n = results.length;
+  const meanCount = emptyCensus();
+  const sharePct = emptyCensus();
+  const sharePctCi95 = emptyCensus();
+  const extinct = emptyCensus();
   const fixated = emptyCensus();
   let unfixed = 0;
   for (const result of results) {
-    for (const spec of SPECS) total[spec] += result.counts[spec];
     if (result.fixated === null) unfixed += 1;
     else fixated[result.fixated] += 1;
   }
-  const meanCount = emptyCensus();
-  const sharePct = emptyCensus();
   for (const spec of SPECS) {
-    meanCount[spec] = round(total[spec] / results.length, 4);
-    sharePct[spec] = round((100 * total[spec]) / (results.length * size), 4);
+    const shares = results.map((result) => (100 * result.counts[spec]) / size);
+    const mean = shares.reduce((acc, value) => acc + value, 0) / n;
+    const variance = n > 1 ? shares.reduce((acc, value) => acc + (value - mean) ** 2, 0) / (n - 1) : 0;
+    meanCount[spec] = round((mean * size) / 100, 4);
+    sharePct[spec] = round(mean, 4);
+    sharePctCi95[spec] = round((1.96 * Math.sqrt(variance)) / Math.sqrt(n), 4);
+    extinct[spec] = results.filter((result) => result.counts[spec] === 0).length;
   }
-  return { seeds: results.length, meanCount, sharePct, fixated, unfixed };
+  return { seeds: n, meanCount, sharePct, sharePctCi95, extinct, fixated, unfixed };
 }
+
+/** "36.50 ± 4.10 %" for one type. */
+export function formatShare(summary: Summary, spec: Spec): string {
+  return `${summary.sharePct[spec].toFixed(2)} ± ${summary.sharePctCi95[spec].toFixed(2)} %`;
+}
+
+/** For the runs whose original configuration was not recorded. */
+export const CONFIG_NOTE =
+  "the encounters and seeds of the original exploratory runs were not recorded; these runs fix 4 encounters, as the engine cut and R1, and 200 seeds";
+
+export const PENDING_CLAIM = "pending text update";
 
 export function round(value: number, digits: number): number {
   const factor = 10 ** digits;
   return Math.round(value * factor) / factor;
 }
 
-/** One line per summary, for the console. */
+/**
+ * Two lines per summary, for the console: the mean per type (count, or share
+ * with its 95 % interval), then extinctions, fixations, and unfixed runs.
+ */
 export function formatSummary(label: string, summary: Summary, field: "meanCount" | "sharePct"): string {
-  const unit = field === "sharePct" ? "%" : "";
-  const cells = SPECS.map((spec) => `${spec} ${summary[field][spec].toFixed(2)}${unit}`);
-  const fixed = SPECS.filter((spec) => summary.fixated[spec] > 0)
-    .map((spec) => `${spec} ${summary.fixated[spec]}`)
-    .join(", ");
-  return `${label.padEnd(28)} ${cells.join("  ")}  | fixated: ${fixed || "none"}; unfixed ${summary.unfixed}/${summary.seeds}`;
+  const cells = SPECS.map((spec) =>
+    field === "sharePct" ? `${spec} ${formatShare(summary, spec)}` : `${spec} ${summary.meanCount[spec].toFixed(2)}`,
+  );
+  const listed = (census: Census) =>
+    SPECS.filter((spec) => census[spec] > 0)
+      .map((spec) => `${spec} ${census[spec]}`)
+      .join(", ") || "none";
+  return [
+    `${label.padEnd(28)} ${cells.join("  ")}`,
+    `${"".padEnd(28)} extinct: ${listed(summary.extinct)} | fixated: ${listed(summary.fixated)} | unfixed ${summary.unfixed}/${summary.seeds}`,
+  ].join("\n");
 }
 
 function git(...args: string[]): string {
@@ -162,7 +200,7 @@ export function write(
   id: string,
   name: string,
   clock: { startedAt: number },
-  body: { claim: string; params: unknown; seeds: unknown; summary: unknown; runs: unknown },
+  body: { claim: string; configNote?: string; params: unknown; seeds: unknown; summary: unknown; runs: unknown },
 ): void {
   const durationMs = Math.round(performance.now() - clock.startedAt);
   const lifecycle = process.env["npm_lifecycle_event"];
@@ -170,6 +208,7 @@ export function write(
     schemaVersion: RESULTS_SCHEMA_VERSION,
     id,
     claim: body.claim,
+    ...(body.configNote === undefined ? {} : { configNote: body.configNote }),
     provenance: {
       engineRepo: "Montse2308/Dilema-del-Prisionero",
       engineCommit: git("rev-parse", "HEAD").trim(),

@@ -3,40 +3,48 @@
  *
  *   npm run reproduce:r3
  *
- * N = 200, 400 generations, 20 seeds per s. The original seed names are not
- * documented; these are s-axis-0 … s-axis-19. The record gives 400–500
- * generations; this run uses 400. Encounters and the initial population are
- * not given either: they are those of `test/motor.test.ts`, 2 encounters and
- * a uniform five-type population.
+ * N = 200, 400 generations, 4 encounters per agent, uniform five-type
+ * population, 200 seeds per s: s-axis-0 … s-axis-199. The encounters and seeds
+ * of the original exploratory runs were not recorded; these are the runs the
+ * working paper reports.
  */
 import { it } from "vitest";
 import { run } from "../../src/index.js";
 import {
+  CONFIG_NOTE,
+  PENDING_CLAIM,
   baseParams,
   describeParams,
+  formatShare,
   formatSummary,
   seedNames,
   start,
   summarize,
   write,
   type SeedResult,
+  type Summary,
 } from "./common.js";
 
 const GENERATIONS = 400;
+const ENCOUNTERS = 4;
 const S_GRID = [0, 0.25, 0.4, 0.42, 0.44, 0.49, 0.5, 0.75, 1];
-const SEEDS = seedNames("s-axis-", 20);
+const SEEDS = seedNames("s-axis-", 200);
+
+function paramsFor(s: number) {
+  return baseParams({ s, encounters: ENCOUNTERS });
+}
 
 it("R3 — s axis", () => {
   const clock = start();
   const lines: string[] = [];
-  const summary = [];
+  const summary: Array<{ s: number } & Summary> = [];
   const runs = [];
   const finals = new Map<number, string[][]>();
 
   for (const s of S_GRID) {
     const populations: string[][] = [];
     const results: SeedResult[] = SEEDS.map((seed) => {
-      const result = run(baseParams({ s }), GENERATIONS, seed);
+      const result = run(paramsFor(s), GENERATIONS, seed);
       populations.push(result.final.population);
       return { seed, counts: result.counts, fixated: result.fixated };
     });
@@ -52,32 +60,37 @@ it("R3 — s axis", () => {
     const y = finals.get(b)!;
     return x.filter((pop, i) => pop.every((spec, k) => spec === y[i]![k])).length;
   };
-  const identical = {
-    "0.5 vs 0.75": same(0.5, 0.75),
-    "0.5 vs 1": same(0.5, 1),
+  const at = (s: number) => summary.find((row) => row.s === s)!;
+  const checks = {
+    mcbFixatedAt049: at(0.49).fixated["MC-b"],
+    mcbFixatedAt050: at(0.5).fixated["MC-b"],
+    mcbExtinctAt050: at(0.5).extinct["MC-b"],
+    sameFinalPopulation050vs075: same(0.5, 0.75),
+    sameFinalPopulation050vs1: same(0.5, 1),
+    pgaSharePct: { "0.40": at(0.4).sharePct.PGA, "0.42": at(0.42).sharePct.PGA, "0.44": at(0.44).sharePct.PGA },
   };
 
+  const n = SEEDS.length;
   console.log(
     [
-      "R3 — s axis (mean final share, % of N = 200)",
+      `R3 — s axis (mean final share, % of N = 200, ± 95 % interval; ${n} seeds)`,
       ...lines,
-      `same final population, seed by seed: 0.50 vs 0.75 in ${identical["0.5 vs 0.75"]}/20, 0.50 vs 1 in ${identical["0.5 vs 1"]}/20`,
+      `MC-b fixated at 0.49 in ${checks.mcbFixatedAt049}/${n}; at 0.50 in ${checks.mcbFixatedAt050}/${n} (extinct in ${checks.mcbExtinctAt050}/${n})`,
+      `same final population, seed by seed: 0.50 vs 0.75 in ${checks.sameFinalPopulation050vs075}/${n}, 0.50 vs 1 in ${checks.sameFinalPopulation050vs1}/${n}`,
+      `PGA share: 0.40 ${formatShare(at(0.4), "PGA")}, 0.42 ${formatShare(at(0.42), "PGA")}, 0.44 ${formatShare(at(0.44), "PGA")}`,
     ].join("\n"),
   );
   write("r3", "s-axis", clock, {
-    claim:
-      "MC-b fixates in 20 of 20 at s = 0.49 and disappears at s = 0.50. At 0.50, 0.75 and 1 the result is identical. The PGA share falls toward 0 near 0.42–0.44 (reference measured with other seeds at 0f920ab: PGA 31.7 % at 0.42 and 0.1 % at 0.44).",
+    claim: PENDING_CLAIM,
+    configNote: CONFIG_NOTE,
     params: {
       generations: GENERATIONS,
-      generationsNote: "the record says 400–500; this run uses 400",
       sGrid: S_GRID,
-      run: describeParams(baseParams()),
-      initialPopulation: "uniform over SELF, GA, PGA, MC-a, MC-b (run() default, as test/motor.test.ts)",
-      encountersNote: "not given for this run; 2, as test/motor.test.ts",
-      seedsNote: "the original seed names are not documented",
+      run: describeParams(paramsFor(0)),
+      initialPopulation: "uniform over SELF, GA, PGA, MC-a, MC-b (run() default)",
     },
     seeds: SEEDS,
-    summary: { bySValue: summary, seedsWithSameFinalPopulation: identical },
+    summary: { bySValue: summary, checks },
     runs,
   });
 });
