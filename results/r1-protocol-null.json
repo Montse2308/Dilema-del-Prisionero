@@ -1,14 +1,14 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "r1",
   "claim": "Both protocols give the same population seed by seed. Mean final count over 200: s = 0 → GA 57.0, PGA 49.4, MC-a 30.8, MC-b 62.9; s = 0.25 → PGA 112.4, MC-b 87.6; s = 0.5 → GA 133.9, MC-a 66.2.",
   "provenance": {
     "engineRepo": "Montse2308/Dilema-del-Prisionero",
-    "engineCommit": "841b4d82f127208bcdeb72757c74e298f5539db5",
-    "generatedAt": "2026-10-07T17:42:48.370Z",
+    "engineCommit": "b5b222a41d30afe446a4f03e197a23933d5f3536",
+    "generatedAt": "2026-10-07T18:03:42.366Z",
     "node": "v24.11.0",
     "command": "npm run reproduce",
-    "durationMs": 20235
+    "durationMs": 19536
   },
   "params": {
     "generations": 400,
@@ -121,6 +121,20 @@
           "MC-a": 15.4,
           "MC-b": 31.45
         },
+        "sharePctCi95": {
+          "SELF": 0,
+          "GA": 18.7653,
+          "PGA": 18.0306,
+          "MC-a": 15.5444,
+          "MC-b": 18.7169
+        },
+        "extinct": {
+          "SELF": 20,
+          "GA": 12,
+          "PGA": 12,
+          "MC-a": 16,
+          "MC-b": 10
+        },
         "fixated": {
           "SELF": 0,
           "GA": 3,
@@ -145,6 +159,20 @@
           "PGA": 24.675,
           "MC-a": 15.4,
           "MC-b": 31.45
+        },
+        "sharePctCi95": {
+          "SELF": 0,
+          "GA": 18.7653,
+          "PGA": 18.0306,
+          "MC-a": 15.5444,
+          "MC-b": 18.7169
+        },
+        "extinct": {
+          "SELF": 20,
+          "GA": 12,
+          "PGA": 12,
+          "MC-a": 16,
+          "MC-b": 10
         },
         "fixated": {
           "SELF": 0,
@@ -177,6 +205,20 @@
           "MC-a": 0,
           "MC-b": 43.8
         },
+        "sharePctCi95": {
+          "SELF": 0,
+          "GA": 0,
+          "PGA": 19.5384,
+          "MC-a": 0,
+          "MC-b": 19.5384
+        },
+        "extinct": {
+          "SELF": 20,
+          "GA": 20,
+          "PGA": 5,
+          "MC-a": 20,
+          "MC-b": 7
+        },
         "fixated": {
           "SELF": 0,
           "GA": 0,
@@ -201,6 +243,20 @@
           "PGA": 56.2,
           "MC-a": 0,
           "MC-b": 43.8
+        },
+        "sharePctCi95": {
+          "SELF": 0,
+          "GA": 0,
+          "PGA": 19.5384,
+          "MC-a": 0,
+          "MC-b": 19.5384
+        },
+        "extinct": {
+          "SELF": 20,
+          "GA": 20,
+          "PGA": 5,
+          "MC-a": 20,
+          "MC-b": 7
         },
         "fixated": {
           "SELF": 0,
@@ -235,6 +291,20 @@
           "MC-a": 33.075,
           "MC-b": 0
         },
+        "sharePctCi95": {
+          "SELF": 0,
+          "GA": 19.6378,
+          "PGA": 0,
+          "MC-a": 19.6378,
+          "MC-b": 0
+        },
+        "extinct": {
+          "SELF": 20,
+          "GA": 5,
+          "PGA": 20,
+          "MC-a": 11,
+          "MC-b": 20
+        },
         "fixated": {
           "SELF": 0,
           "GA": 11,
@@ -259,6 +329,20 @@
           "PGA": 0,
           "MC-a": 33.075,
           "MC-b": 0
+        },
+        "sharePctCi95": {
+          "SELF": 0,
+          "GA": 19.6378,
+          "PGA": 0,
+          "MC-a": 19.6378,
+          "MC-b": 0
+        },
+        "extinct": {
+          "SELF": 20,
+          "GA": 5,
+          "PGA": 20,
+          "MC-a": 11,
+          "MC-b": 20
         },
         "fixated": {
           "SELF": 0,

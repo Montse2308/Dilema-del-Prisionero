@@ -1,14 +1,14 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "r6",
   "claim": "PGA goes extinct in 20 of 20 at β₀ = 0.05 and 0.74. At 0.38 the mean PGA count is 57.75 of 200; in the q9b batch it is 94.45.",
   "provenance": {
     "engineRepo": "Montse2308/Dilema-del-Prisionero",
-    "engineCommit": "841b4d82f127208bcdeb72757c74e298f5539db5",
-    "generatedAt": "2026-10-07T17:43:20.587Z",
+    "engineCommit": "b5b222a41d30afe446a4f03e197a23933d5f3536",
+    "generatedAt": "2026-10-07T18:03:58.262Z",
     "node": "v24.11.0",
     "command": "npm run reproduce",
-    "durationMs": 17319
+    "durationMs": 15655
   },
   "params": {
     "generations": 400,
@@ -45,7 +45,7 @@
     "beta1Held": 0.76,
     "initialPopulation": "half PGA, half MC-b, alternating (uniformPopulation(200, [PGA, MC-b]))",
     "beliefs": "put back to (beta0, beta1Held) after every generation",
-    "source": "test/curve-sweep.test.ts, evolve()"
+    "source": "evolve() of test/curve-sweep.test.ts, as of 6f59bad; that file was removed and this script replaces it"
   },
   "seeds": {
     "q9": [

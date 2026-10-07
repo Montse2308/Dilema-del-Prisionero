@@ -1,14 +1,15 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "id": "r4",
-  "claim": "PGA share 15.0 → 31.7 → 56.0 % for N = 100, 200, 400, and unfixed runs from 0 to 10 of 20. What the text needs is that it rises with N.",
+  "claim": "pending text update",
+  "configNote": "the encounters and seeds of the original exploratory runs were not recorded; these runs fix 4 encounters, as the engine cut and R1, and 200 seeds",
   "provenance": {
     "engineRepo": "Montse2308/Dilema-del-Prisionero",
-    "engineCommit": "841b4d82f127208bcdeb72757c74e298f5539db5",
-    "generatedAt": "2026-10-07T17:43:49.933Z",
+    "engineCommit": "b5b222a41d30afe446a4f03e197a23933d5f3536",
+    "generatedAt": "2026-10-07T18:12:56.485Z",
     "node": "v24.11.0",
     "command": "npm run reproduce",
-    "durationMs": 7884
+    "durationMs": 100715
   },
   "params": {
     "generations": 400,
@@ -32,7 +33,7 @@
         "theta": 0.6,
         "c": 5
       },
-      "encounters": 2,
+      "encounters": 4,
       "beta1Init": 0.76,
       "observation": "rational",
       "beta1Kind": "entered",
@@ -43,8 +44,7 @@
       "capSource": "capForGame"
     },
     "initialPopulation": "uniform over SELF, GA, PGA, MC-a, MC-b (run() default)",
-    "encountersNote": "not given for this run; 2, as R3",
-    "seedsNote": "the original seed names are not documented; the R3 seeds are reused"
+    "seedsNote": "the R3 seeds"
   },
   "seeds": [
     "s-axis-0",
@@ -66,90 +66,316 @@
     "s-axis-16",
     "s-axis-17",
     "s-axis-18",
-    "s-axis-19"
+    "s-axis-19",
+    "s-axis-20",
+    "s-axis-21",
+    "s-axis-22",
+    "s-axis-23",
+    "s-axis-24",
+    "s-axis-25",
+    "s-axis-26",
+    "s-axis-27",
+    "s-axis-28",
+    "s-axis-29",
+    "s-axis-30",
+    "s-axis-31",
+    "s-axis-32",
+    "s-axis-33",
+    "s-axis-34",
+    "s-axis-35",
+    "s-axis-36",
+    "s-axis-37",
+    "s-axis-38",
+    "s-axis-39",
+    "s-axis-40",
+    "s-axis-41",
+    "s-axis-42",
+    "s-axis-43",
+    "s-axis-44",
+    "s-axis-45",
+    "s-axis-46",
+    "s-axis-47",
+    "s-axis-48",
+    "s-axis-49",
+    "s-axis-50",
+    "s-axis-51",
+    "s-axis-52",
+    "s-axis-53",
+    "s-axis-54",
+    "s-axis-55",
+    "s-axis-56",
+    "s-axis-57",
+    "s-axis-58",
+    "s-axis-59",
+    "s-axis-60",
+    "s-axis-61",
+    "s-axis-62",
+    "s-axis-63",
+    "s-axis-64",
+    "s-axis-65",
+    "s-axis-66",
+    "s-axis-67",
+    "s-axis-68",
+    "s-axis-69",
+    "s-axis-70",
+    "s-axis-71",
+    "s-axis-72",
+    "s-axis-73",
+    "s-axis-74",
+    "s-axis-75",
+    "s-axis-76",
+    "s-axis-77",
+    "s-axis-78",
+    "s-axis-79",
+    "s-axis-80",
+    "s-axis-81",
+    "s-axis-82",
+    "s-axis-83",
+    "s-axis-84",
+    "s-axis-85",
+    "s-axis-86",
+    "s-axis-87",
+    "s-axis-88",
+    "s-axis-89",
+    "s-axis-90",
+    "s-axis-91",
+    "s-axis-92",
+    "s-axis-93",
+    "s-axis-94",
+    "s-axis-95",
+    "s-axis-96",
+    "s-axis-97",
+    "s-axis-98",
+    "s-axis-99",
+    "s-axis-100",
+    "s-axis-101",
+    "s-axis-102",
+    "s-axis-103",
+    "s-axis-104",
+    "s-axis-105",
+    "s-axis-106",
+    "s-axis-107",
+    "s-axis-108",
+    "s-axis-109",
+    "s-axis-110",
+    "s-axis-111",
+    "s-axis-112",
+    "s-axis-113",
+    "s-axis-114",
+    "s-axis-115",
+    "s-axis-116",
+    "s-axis-117",
+    "s-axis-118",
+    "s-axis-119",
+    "s-axis-120",
+    "s-axis-121",
+    "s-axis-122",
+    "s-axis-123",
+    "s-axis-124",
+    "s-axis-125",
+    "s-axis-126",
+    "s-axis-127",
+    "s-axis-128",
+    "s-axis-129",
+    "s-axis-130",
+    "s-axis-131",
+    "s-axis-132",
+    "s-axis-133",
+    "s-axis-134",
+    "s-axis-135",
+    "s-axis-136",
+    "s-axis-137",
+    "s-axis-138",
+    "s-axis-139",
+    "s-axis-140",
+    "s-axis-141",
+    "s-axis-142",
+    "s-axis-143",
+    "s-axis-144",
+    "s-axis-145",
+    "s-axis-146",
+    "s-axis-147",
+    "s-axis-148",
+    "s-axis-149",
+    "s-axis-150",
+    "s-axis-151",
+    "s-axis-152",
+    "s-axis-153",
+    "s-axis-154",
+    "s-axis-155",
+    "s-axis-156",
+    "s-axis-157",
+    "s-axis-158",
+    "s-axis-159",
+    "s-axis-160",
+    "s-axis-161",
+    "s-axis-162",
+    "s-axis-163",
+    "s-axis-164",
+    "s-axis-165",
+    "s-axis-166",
+    "s-axis-167",
+    "s-axis-168",
+    "s-axis-169",
+    "s-axis-170",
+    "s-axis-171",
+    "s-axis-172",
+    "s-axis-173",
+    "s-axis-174",
+    "s-axis-175",
+    "s-axis-176",
+    "s-axis-177",
+    "s-axis-178",
+    "s-axis-179",
+    "s-axis-180",
+    "s-axis-181",
+    "s-axis-182",
+    "s-axis-183",
+    "s-axis-184",
+    "s-axis-185",
+    "s-axis-186",
+    "s-axis-187",
+    "s-axis-188",
+    "s-axis-189",
+    "s-axis-190",
+    "s-axis-191",
+    "s-axis-192",
+    "s-axis-193",
+    "s-axis-194",
+    "s-axis-195",
+    "s-axis-196",
+    "s-axis-197",
+    "s-axis-198",
+    "s-axis-199"
   ],
   "summary": {
     "bySize": [
       {
         "size": 100,
-        "seeds": 20,
+        "seeds": 200,
         "meanCount": {
           "SELF": 0,
           "GA": 0,
-          "PGA": 15,
+          "PGA": 19.7,
           "MC-a": 0,
-          "MC-b": 85
+          "MC-b": 80.3
         },
         "sharePct": {
           "SELF": 0,
           "GA": 0,
-          "PGA": 15,
+          "PGA": 19.7,
           "MC-a": 0,
-          "MC-b": 85
+          "MC-b": 80.3
+        },
+        "sharePctCi95": {
+          "SELF": 0,
+          "GA": 0,
+          "PGA": 5.4684,
+          "MC-a": 0,
+          "MC-b": 5.4684
+        },
+        "extinct": {
+          "SELF": 200,
+          "GA": 200,
+          "PGA": 158,
+          "MC-a": 200,
+          "MC-b": 37
         },
         "fixated": {
           "SELF": 0,
           "GA": 0,
-          "PGA": 3,
+          "PGA": 37,
           "MC-a": 0,
-          "MC-b": 17
+          "MC-b": 158
         },
-        "unfixed": 0
+        "unfixed": 5
       },
       {
         "size": 200,
-        "seeds": 20,
+        "seeds": 200,
         "meanCount": {
           "SELF": 0,
           "GA": 0,
-          "PGA": 18.9,
+          "PGA": 85.9,
           "MC-a": 0,
-          "MC-b": 181.1
+          "MC-b": 114.1
         },
         "sharePct": {
           "SELF": 0,
           "GA": 0,
-          "PGA": 9.45,
+          "PGA": 42.95,
           "MC-a": 0,
-          "MC-b": 90.55
+          "MC-b": 57.05
+        },
+        "sharePctCi95": {
+          "SELF": 0,
+          "GA": 0,
+          "PGA": 5.9558,
+          "MC-a": 0,
+          "MC-b": 5.9558
+        },
+        "extinct": {
+          "SELF": 200,
+          "GA": 200,
+          "PGA": 71,
+          "MC-a": 200,
+          "MC-b": 50
         },
         "fixated": {
           "SELF": 0,
           "GA": 0,
-          "PGA": 1,
+          "PGA": 50,
           "MC-a": 0,
-          "MC-b": 18
+          "MC-b": 71
         },
-        "unfixed": 1
+        "unfixed": 79
       },
       {
         "size": 400,
-        "seeds": 20,
+        "seeds": 200,
         "meanCount": {
           "SELF": 0,
           "GA": 0,
-          "PGA": 131.3,
+          "PGA": 189.675,
           "MC-a": 0,
-          "MC-b": 268.7
+          "MC-b": 210.325
         },
         "sharePct": {
           "SELF": 0,
           "GA": 0,
-          "PGA": 32.825,
+          "PGA": 47.4188,
           "MC-a": 0,
-          "MC-b": 67.175
+          "MC-b": 52.5813
+        },
+        "sharePctCi95": {
+          "SELF": 0,
+          "GA": 0,
+          "PGA": 4.8041,
+          "MC-a": 0,
+          "MC-b": 4.8041
+        },
+        "extinct": {
+          "SELF": 200,
+          "GA": 200,
+          "PGA": 22,
+          "MC-a": 200,
+          "MC-b": 21
         },
         "fixated": {
           "SELF": 0,
           "GA": 0,
-          "PGA": 3,
+          "PGA": 21,
           "MC-a": 0,
-          "MC-b": 3
+          "MC-b": 22
         },
-        "unfixed": 14
+        "unfixed": 157
       }
     ],
-    "pgaShareRisesWithN": false
+    "checks": {
+      "pgaShareRisesAtEveryStep": true,
+      "pgaExtinctFallsAtEveryStep": true,
+      "unfixedRisesAtEveryStep": true
+    }
   },
   "runs": [
     {
@@ -182,11 +408,11 @@
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 100,
+            "PGA": 0,
             "MC-a": 0,
-            "MC-b": 0
+            "MC-b": 100
           },
-          "fixated": "PGA"
+          "fixated": "MC-b"
         },
         {
           "seed": "s-axis-3",
@@ -204,11 +430,11 @@
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 100,
+            "PGA": 0,
             "MC-a": 0,
-            "MC-b": 0
+            "MC-b": 100
           },
-          "fixated": "PGA"
+          "fixated": "MC-b"
         },
         {
           "seed": "s-axis-5",
@@ -237,11 +463,11 @@
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 100,
             "MC-a": 0,
-            "MC-b": 100
+            "MC-b": 0
           },
-          "fixated": "MC-b"
+          "fixated": "PGA"
         },
         {
           "seed": "s-axis-8",
@@ -314,11 +540,11 @@
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 100,
             "MC-a": 0,
-            "MC-b": 100
+            "MC-b": 0
           },
-          "fixated": "MC-b"
+          "fixated": "PGA"
         },
         {
           "seed": "s-axis-15",
@@ -366,6 +592,1986 @@
         },
         {
           "seed": "s-axis-19",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-20",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-21",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-22",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-23",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-24",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-25",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-26",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-27",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-28",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-29",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-30",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-31",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-32",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-33",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-34",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-35",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-36",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-37",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-38",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-39",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-40",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-41",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-42",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-43",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-44",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-45",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-46",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-47",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-48",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-49",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-50",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-51",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-52",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-53",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-54",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-55",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-56",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-57",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-58",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-59",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-60",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-61",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-62",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-63",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-64",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-65",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-66",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-67",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-68",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-69",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-70",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-71",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-72",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-73",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-74",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-75",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-76",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-77",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-78",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-79",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-80",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-81",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-82",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-83",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-84",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-85",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-86",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-87",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-88",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-89",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-90",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-91",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-92",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-93",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-94",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-95",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-96",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-97",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-98",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-99",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-100",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-101",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-102",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-103",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-104",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-105",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-106",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-107",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-108",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-109",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-110",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-111",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-112",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-113",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-114",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-115",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-116",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-117",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-118",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-119",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-120",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-121",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-122",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-123",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-124",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-125",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 73,
+            "MC-a": 0,
+            "MC-b": 27
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-126",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-127",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-128",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-129",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 85,
+            "MC-a": 0,
+            "MC-b": 15
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-130",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-131",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-132",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-133",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-134",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-135",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-136",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-137",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-138",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-139",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-140",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-141",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-142",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-143",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-144",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-145",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-146",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 10,
+            "MC-a": 0,
+            "MC-b": 90
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-147",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-148",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-149",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-150",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-151",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 69,
+            "MC-a": 0,
+            "MC-b": 31
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-152",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-153",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-154",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-155",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-156",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-157",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-158",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-159",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-160",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-161",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-162",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-163",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-164",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-165",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-166",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-167",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-168",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-169",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-170",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-171",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-172",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-173",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-174",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-175",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-176",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-177",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-178",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-179",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-180",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-181",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-182",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-183",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-184",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-185",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-186",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-187",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-188",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-189",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-190",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-191",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-192",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-193",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-194",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 3,
+            "MC-a": 0,
+            "MC-b": 97
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-195",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-196",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 100,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-197",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-198",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 100
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-199",
           "counts": {
             "SELF": 0,
             "GA": 0,
@@ -418,55 +2624,55 @@
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 200,
             "MC-a": 0,
-            "MC-b": 200
+            "MC-b": 0
           },
-          "fixated": "MC-b"
+          "fixated": "PGA"
         },
         {
           "seed": "s-axis-4",
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 35,
             "MC-a": 0,
-            "MC-b": 200
+            "MC-b": 165
           },
-          "fixated": "MC-b"
+          "fixated": null
         },
         {
           "seed": "s-axis-5",
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 71,
             "MC-a": 0,
-            "MC-b": 200
+            "MC-b": 129
           },
-          "fixated": "MC-b"
+          "fixated": null
         },
         {
           "seed": "s-axis-6",
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 200,
             "MC-a": 0,
-            "MC-b": 200
+            "MC-b": 0
           },
-          "fixated": "MC-b"
+          "fixated": "PGA"
         },
         {
           "seed": "s-axis-7",
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 195,
             "MC-a": 0,
-            "MC-b": 200
+            "MC-b": 5
           },
-          "fixated": "MC-b"
+          "fixated": null
         },
         {
           "seed": "s-axis-8",
@@ -495,33 +2701,33 @@
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 200,
             "MC-a": 0,
-            "MC-b": 200
+            "MC-b": 0
           },
-          "fixated": "MC-b"
+          "fixated": "PGA"
         },
         {
           "seed": "s-axis-11",
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 200,
             "MC-a": 0,
-            "MC-b": 200
+            "MC-b": 0
           },
-          "fixated": "MC-b"
+          "fixated": "PGA"
         },
         {
           "seed": "s-axis-12",
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 15,
             "MC-a": 0,
-            "MC-b": 200
+            "MC-b": 185
           },
-          "fixated": "MC-b"
+          "fixated": null
         },
         {
           "seed": "s-axis-13",
@@ -539,58 +2745,91 @@
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 178,
+            "PGA": 200,
             "MC-a": 0,
-            "MC-b": 22
+            "MC-b": 0
           },
-          "fixated": null
+          "fixated": "PGA"
         },
         {
           "seed": "s-axis-15",
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 191,
             "MC-a": 0,
-            "MC-b": 200
+            "MC-b": 9
           },
-          "fixated": "MC-b"
+          "fixated": null
         },
         {
           "seed": "s-axis-16",
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 199,
             "MC-a": 0,
-            "MC-b": 200
+            "MC-b": 1
           },
-          "fixated": "MC-b"
+          "fixated": null
         },
         {
           "seed": "s-axis-17",
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 114,
             "MC-a": 0,
-            "MC-b": 200
+            "MC-b": 86
           },
-          "fixated": "MC-b"
+          "fixated": null
         },
         {
           "seed": "s-axis-18",
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 0,
+            "PGA": 5,
             "MC-a": 0,
-            "MC-b": 200
+            "MC-b": 195
           },
-          "fixated": "MC-b"
+          "fixated": null
         },
         {
           "seed": "s-axis-19",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 14,
+            "MC-a": 0,
+            "MC-b": 186
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-20",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 174,
+            "MC-a": 0,
+            "MC-b": 26
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-21",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 51,
+            "MC-a": 0,
+            "MC-b": 149
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-22",
           "counts": {
             "SELF": 0,
             "GA": 0,
@@ -599,6 +2838,1953 @@
             "MC-b": 200
           },
           "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-23",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 109,
+            "MC-a": 0,
+            "MC-b": 91
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-24",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-25",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-26",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-27",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-28",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-29",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-30",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-31",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 121,
+            "MC-a": 0,
+            "MC-b": 79
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-32",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 6,
+            "MC-a": 0,
+            "MC-b": 194
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-33",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-34",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 10,
+            "MC-a": 0,
+            "MC-b": 190
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-35",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 181,
+            "MC-a": 0,
+            "MC-b": 19
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-36",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-37",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 3,
+            "MC-a": 0,
+            "MC-b": 197
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-38",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 163,
+            "MC-a": 0,
+            "MC-b": 37
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-39",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 96,
+            "MC-a": 0,
+            "MC-b": 104
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-40",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 107,
+            "MC-a": 0,
+            "MC-b": 93
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-41",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 31,
+            "MC-a": 0,
+            "MC-b": 169
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-42",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-43",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-44",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 74,
+            "MC-a": 0,
+            "MC-b": 126
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-45",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 38,
+            "MC-a": 0,
+            "MC-b": 162
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-46",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-47",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 27,
+            "MC-a": 0,
+            "MC-b": 173
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-48",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-49",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-50",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-51",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-52",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-53",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 180,
+            "MC-a": 0,
+            "MC-b": 20
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-54",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-55",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-56",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 155,
+            "MC-a": 0,
+            "MC-b": 45
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-57",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 45,
+            "MC-a": 0,
+            "MC-b": 155
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-58",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 117,
+            "MC-a": 0,
+            "MC-b": 83
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-59",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 150,
+            "MC-a": 0,
+            "MC-b": 50
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-60",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-61",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-62",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-63",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-64",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-65",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 97,
+            "MC-a": 0,
+            "MC-b": 103
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-66",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 125,
+            "MC-a": 0,
+            "MC-b": 75
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-67",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-68",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 102,
+            "MC-a": 0,
+            "MC-b": 98
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-69",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-70",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-71",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 168,
+            "MC-a": 0,
+            "MC-b": 32
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-72",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-73",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 35,
+            "MC-a": 0,
+            "MC-b": 165
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-74",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-75",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 92,
+            "MC-a": 0,
+            "MC-b": 108
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-76",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-77",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-78",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-79",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 102,
+            "MC-a": 0,
+            "MC-b": 98
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-80",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 126,
+            "MC-a": 0,
+            "MC-b": 74
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-81",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 133,
+            "MC-a": 0,
+            "MC-b": 67
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-82",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-83",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-84",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-85",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 25,
+            "MC-a": 0,
+            "MC-b": 175
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-86",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 28,
+            "MC-a": 0,
+            "MC-b": 172
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-87",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 142,
+            "MC-a": 0,
+            "MC-b": 58
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-88",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-89",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-90",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 71,
+            "MC-a": 0,
+            "MC-b": 129
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-91",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 40,
+            "MC-a": 0,
+            "MC-b": 160
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-92",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 153,
+            "MC-a": 0,
+            "MC-b": 47
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-93",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 75,
+            "MC-a": 0,
+            "MC-b": 125
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-94",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 57,
+            "MC-a": 0,
+            "MC-b": 143
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-95",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 111,
+            "MC-a": 0,
+            "MC-b": 89
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-96",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-97",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-98",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 189,
+            "MC-a": 0,
+            "MC-b": 11
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-99",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-100",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 8,
+            "MC-a": 0,
+            "MC-b": 192
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-101",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-102",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 118,
+            "MC-a": 0,
+            "MC-b": 82
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-103",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-104",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-105",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-106",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-107",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-108",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-109",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-110",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-111",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-112",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-113",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-114",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 129,
+            "MC-a": 0,
+            "MC-b": 71
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-115",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 193,
+            "MC-a": 0,
+            "MC-b": 7
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-116",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-117",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 8,
+            "MC-a": 0,
+            "MC-b": 192
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-118",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 8,
+            "MC-a": 0,
+            "MC-b": 192
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-119",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-120",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-121",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 115,
+            "MC-a": 0,
+            "MC-b": 85
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-122",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-123",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-124",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-125",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 13,
+            "MC-a": 0,
+            "MC-b": 187
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-126",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-127",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 192,
+            "MC-a": 0,
+            "MC-b": 8
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-128",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-129",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 2,
+            "MC-a": 0,
+            "MC-b": 198
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-130",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-131",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-132",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 109,
+            "MC-a": 0,
+            "MC-b": 91
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-133",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-134",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 11,
+            "MC-a": 0,
+            "MC-b": 189
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-135",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-136",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-137",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-138",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 5,
+            "MC-a": 0,
+            "MC-b": 195
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-139",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-140",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-141",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-142",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-143",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-144",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-145",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-146",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 170,
+            "MC-a": 0,
+            "MC-b": 30
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-147",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 92,
+            "MC-a": 0,
+            "MC-b": 108
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-148",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 132,
+            "MC-a": 0,
+            "MC-b": 68
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-149",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-150",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-151",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-152",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 97,
+            "MC-a": 0,
+            "MC-b": 103
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-153",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 68,
+            "MC-a": 0,
+            "MC-b": 132
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-154",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-155",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-156",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-157",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 110,
+            "MC-a": 0,
+            "MC-b": 90
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-158",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-159",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-160",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-161",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-162",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-163",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 164,
+            "MC-a": 0,
+            "MC-b": 36
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-164",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-165",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 74,
+            "MC-a": 0,
+            "MC-b": 126
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-166",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 167,
+            "MC-a": 0,
+            "MC-b": 33
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-167",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 42,
+            "MC-a": 0,
+            "MC-b": 158
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-168",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 17,
+            "MC-a": 0,
+            "MC-b": 183
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-169",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-170",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-171",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-172",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 62,
+            "MC-a": 0,
+            "MC-b": 138
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-173",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-174",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 13,
+            "MC-a": 0,
+            "MC-b": 187
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-175",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-176",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-177",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-178",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-179",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-180",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-181",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-182",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-183",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-184",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-185",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-186",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-187",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-188",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 145,
+            "MC-a": 0,
+            "MC-b": 55
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-189",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 111,
+            "MC-a": 0,
+            "MC-b": 89
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-190",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-191",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-192",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-193",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-194",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 14,
+            "MC-a": 0,
+            "MC-b": 186
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-195",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 85,
+            "MC-a": 0,
+            "MC-b": 115
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-196",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-197",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 158,
+            "MC-a": 0,
+            "MC-b": 42
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-198",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-199",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
         }
       ]
     },
@@ -610,9 +4796,9 @@
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 152,
+            "PGA": 40,
             "MC-a": 0,
-            "MC-b": 248
+            "MC-b": 360
           },
           "fixated": null
         },
@@ -632,9 +4818,9 @@
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 136,
+            "PGA": 248,
             "MC-a": 0,
-            "MC-b": 264
+            "MC-b": 152
           },
           "fixated": null
         },
@@ -643,9 +4829,9 @@
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 2,
+            "PGA": 217,
             "MC-a": 0,
-            "MC-b": 398
+            "MC-b": 183
           },
           "fixated": null
         },
@@ -654,135 +4840,14 @@
           "counts": {
             "SELF": 0,
             "GA": 0,
-            "PGA": 229,
+            "PGA": 0,
             "MC-a": 0,
-            "MC-b": 171
+            "MC-b": 400
           },
-          "fixated": null
+          "fixated": "MC-b"
         },
         {
           "seed": "s-axis-5",
-          "counts": {
-            "SELF": 0,
-            "GA": 0,
-            "PGA": 51,
-            "MC-a": 0,
-            "MC-b": 349
-          },
-          "fixated": null
-        },
-        {
-          "seed": "s-axis-6",
-          "counts": {
-            "SELF": 0,
-            "GA": 0,
-            "PGA": 0,
-            "MC-a": 0,
-            "MC-b": 400
-          },
-          "fixated": "MC-b"
-        },
-        {
-          "seed": "s-axis-7",
-          "counts": {
-            "SELF": 0,
-            "GA": 0,
-            "PGA": 45,
-            "MC-a": 0,
-            "MC-b": 355
-          },
-          "fixated": null
-        },
-        {
-          "seed": "s-axis-8",
-          "counts": {
-            "SELF": 0,
-            "GA": 0,
-            "PGA": 400,
-            "MC-a": 0,
-            "MC-b": 0
-          },
-          "fixated": "PGA"
-        },
-        {
-          "seed": "s-axis-9",
-          "counts": {
-            "SELF": 0,
-            "GA": 0,
-            "PGA": 283,
-            "MC-a": 0,
-            "MC-b": 117
-          },
-          "fixated": null
-        },
-        {
-          "seed": "s-axis-10",
-          "counts": {
-            "SELF": 0,
-            "GA": 0,
-            "PGA": 282,
-            "MC-a": 0,
-            "MC-b": 118
-          },
-          "fixated": null
-        },
-        {
-          "seed": "s-axis-11",
-          "counts": {
-            "SELF": 0,
-            "GA": 0,
-            "PGA": 33,
-            "MC-a": 0,
-            "MC-b": 367
-          },
-          "fixated": null
-        },
-        {
-          "seed": "s-axis-12",
-          "counts": {
-            "SELF": 0,
-            "GA": 0,
-            "PGA": 0,
-            "MC-a": 0,
-            "MC-b": 400
-          },
-          "fixated": "MC-b"
-        },
-        {
-          "seed": "s-axis-13",
-          "counts": {
-            "SELF": 0,
-            "GA": 0,
-            "PGA": 0,
-            "MC-a": 0,
-            "MC-b": 400
-          },
-          "fixated": "MC-b"
-        },
-        {
-          "seed": "s-axis-14",
-          "counts": {
-            "SELF": 0,
-            "GA": 0,
-            "PGA": 85,
-            "MC-a": 0,
-            "MC-b": 315
-          },
-          "fixated": null
-        },
-        {
-          "seed": "s-axis-15",
-          "counts": {
-            "SELF": 0,
-            "GA": 0,
-            "PGA": 62,
-            "MC-a": 0,
-            "MC-b": 338
-          },
-          "fixated": null
-        },
-        {
-          "seed": "s-axis-16",
           "counts": {
             "SELF": 0,
             "GA": 0,
@@ -793,7 +4858,7 @@
           "fixated": null
         },
         {
-          "seed": "s-axis-17",
+          "seed": "s-axis-6",
           "counts": {
             "SELF": 0,
             "GA": 0,
@@ -804,7 +4869,40 @@
           "fixated": null
         },
         {
-          "seed": "s-axis-18",
+          "seed": "s-axis-7",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 287,
+            "MC-a": 0,
+            "MC-b": 113
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-8",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 124,
+            "MC-a": 0,
+            "MC-b": 276
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-9",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 27,
+            "MC-a": 0,
+            "MC-b": 373
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-10",
           "counts": {
             "SELF": 0,
             "GA": 0,
@@ -815,13 +4913,2081 @@
           "fixated": "PGA"
         },
         {
+          "seed": "s-axis-11",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 292,
+            "MC-a": 0,
+            "MC-b": 108
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-12",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 384,
+            "MC-a": 0,
+            "MC-b": 16
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-13",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 180,
+            "MC-a": 0,
+            "MC-b": 220
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-14",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 83,
+            "MC-a": 0,
+            "MC-b": 317
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-15",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 397,
+            "MC-a": 0,
+            "MC-b": 3
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-16",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 163,
+            "MC-a": 0,
+            "MC-b": 237
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-17",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 192,
+            "MC-a": 0,
+            "MC-b": 208
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-18",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 195,
+            "MC-a": 0,
+            "MC-b": 205
+          },
+          "fixated": null
+        },
+        {
           "seed": "s-axis-19",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 180,
+            "MC-a": 0,
+            "MC-b": 220
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-20",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 335,
+            "MC-a": 0,
+            "MC-b": 65
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-21",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 210,
+            "MC-a": 0,
+            "MC-b": 190
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-22",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 272,
+            "MC-a": 0,
+            "MC-b": 128
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-23",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-24",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 1,
+            "MC-a": 0,
+            "MC-b": 399
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-25",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 160,
+            "MC-a": 0,
+            "MC-b": 240
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-26",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 95,
+            "MC-a": 0,
+            "MC-b": 305
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-27",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 298,
+            "MC-a": 0,
+            "MC-b": 102
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-28",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 82,
+            "MC-a": 0,
+            "MC-b": 318
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-29",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 337,
+            "MC-a": 0,
+            "MC-b": 63
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-30",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 246,
+            "MC-a": 0,
+            "MC-b": 154
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-31",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 217,
+            "MC-a": 0,
+            "MC-b": 183
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-32",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-33",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 229,
+            "MC-a": 0,
+            "MC-b": 171
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-34",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-35",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 66,
+            "MC-a": 0,
+            "MC-b": 334
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-36",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 55,
+            "MC-a": 0,
+            "MC-b": 345
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-37",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 4,
+            "MC-a": 0,
+            "MC-b": 396
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-38",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 388,
+            "MC-a": 0,
+            "MC-b": 12
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-39",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 391,
+            "MC-a": 0,
+            "MC-b": 9
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-40",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 172,
+            "MC-a": 0,
+            "MC-b": 228
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-41",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 120,
+            "MC-a": 0,
+            "MC-b": 280
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-42",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-43",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 233,
+            "MC-a": 0,
+            "MC-b": 167
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-44",
           "counts": {
             "SELF": 0,
             "GA": 0,
             "PGA": 19,
             "MC-a": 0,
             "MC-b": 381
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-45",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 282,
+            "MC-a": 0,
+            "MC-b": 118
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-46",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 171,
+            "MC-a": 0,
+            "MC-b": 229
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-47",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 110,
+            "MC-a": 0,
+            "MC-b": 290
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-48",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 331,
+            "MC-a": 0,
+            "MC-b": 69
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-49",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-50",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 228,
+            "MC-a": 0,
+            "MC-b": 172
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-51",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 384,
+            "MC-a": 0,
+            "MC-b": 16
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-52",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 280,
+            "MC-a": 0,
+            "MC-b": 120
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-53",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 88,
+            "MC-a": 0,
+            "MC-b": 312
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-54",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 218,
+            "MC-a": 0,
+            "MC-b": 182
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-55",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 30,
+            "MC-a": 0,
+            "MC-b": 370
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-56",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 132,
+            "MC-a": 0,
+            "MC-b": 268
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-57",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 373,
+            "MC-a": 0,
+            "MC-b": 27
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-58",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 339,
+            "MC-a": 0,
+            "MC-b": 61
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-59",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 8,
+            "MC-a": 0,
+            "MC-b": 392
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-60",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 315,
+            "MC-a": 0,
+            "MC-b": 85
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-61",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 108,
+            "MC-a": 0,
+            "MC-b": 292
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-62",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 197,
+            "MC-a": 0,
+            "MC-b": 203
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-63",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-64",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-65",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-66",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 296,
+            "MC-a": 0,
+            "MC-b": 104
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-67",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 308,
+            "MC-a": 0,
+            "MC-b": 92
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-68",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-69",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 123,
+            "MC-a": 0,
+            "MC-b": 277
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-70",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 116,
+            "MC-a": 0,
+            "MC-b": 284
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-71",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-72",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 287,
+            "MC-a": 0,
+            "MC-b": 113
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-73",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 102,
+            "MC-a": 0,
+            "MC-b": 298
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-74",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 32,
+            "MC-a": 0,
+            "MC-b": 368
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-75",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 390,
+            "MC-a": 0,
+            "MC-b": 10
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-76",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 238,
+            "MC-a": 0,
+            "MC-b": 162
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-77",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 158,
+            "MC-a": 0,
+            "MC-b": 242
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-78",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 190,
+            "MC-a": 0,
+            "MC-b": 210
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-79",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 373,
+            "MC-a": 0,
+            "MC-b": 27
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-80",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 350,
+            "MC-a": 0,
+            "MC-b": 50
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-81",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 18,
+            "MC-a": 0,
+            "MC-b": 382
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-82",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-83",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-84",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 88,
+            "MC-a": 0,
+            "MC-b": 312
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-85",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-86",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 10,
+            "MC-a": 0,
+            "MC-b": 390
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-87",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 241,
+            "MC-a": 0,
+            "MC-b": 159
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-88",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 101,
+            "MC-a": 0,
+            "MC-b": 299
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-89",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 178,
+            "MC-a": 0,
+            "MC-b": 222
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-90",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 243,
+            "MC-a": 0,
+            "MC-b": 157
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-91",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-92",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 215,
+            "MC-a": 0,
+            "MC-b": 185
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-93",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 346,
+            "MC-a": 0,
+            "MC-b": 54
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-94",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 93,
+            "MC-a": 0,
+            "MC-b": 307
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-95",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 146,
+            "MC-a": 0,
+            "MC-b": 254
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-96",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 63,
+            "MC-a": 0,
+            "MC-b": 337
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-97",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-98",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-99",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 332,
+            "MC-a": 0,
+            "MC-b": 68
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-100",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 361,
+            "MC-a": 0,
+            "MC-b": 39
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-101",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 197,
+            "MC-a": 0,
+            "MC-b": 203
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-102",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-103",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 257,
+            "MC-a": 0,
+            "MC-b": 143
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-104",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-105",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 3,
+            "MC-a": 0,
+            "MC-b": 397
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-106",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 67,
+            "MC-a": 0,
+            "MC-b": 333
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-107",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-108",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 106,
+            "MC-a": 0,
+            "MC-b": 294
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-109",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-110",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-111",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 289,
+            "MC-a": 0,
+            "MC-b": 111
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-112",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 319,
+            "MC-a": 0,
+            "MC-b": 81
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-113",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-114",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 91,
+            "MC-a": 0,
+            "MC-b": 309
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-115",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 238,
+            "MC-a": 0,
+            "MC-b": 162
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-116",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 207,
+            "MC-a": 0,
+            "MC-b": 193
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-117",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 374,
+            "MC-a": 0,
+            "MC-b": 26
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-118",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 36,
+            "MC-a": 0,
+            "MC-b": 364
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-119",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-120",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 189,
+            "MC-a": 0,
+            "MC-b": 211
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-121",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 356,
+            "MC-a": 0,
+            "MC-b": 44
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-122",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 163,
+            "MC-a": 0,
+            "MC-b": 237
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-123",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-124",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 327,
+            "MC-a": 0,
+            "MC-b": 73
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-125",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 118,
+            "MC-a": 0,
+            "MC-b": 282
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-126",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 104,
+            "MC-a": 0,
+            "MC-b": 296
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-127",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 95,
+            "MC-a": 0,
+            "MC-b": 305
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-128",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 147,
+            "MC-a": 0,
+            "MC-b": 253
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-129",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 68,
+            "MC-a": 0,
+            "MC-b": 332
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-130",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 26,
+            "MC-a": 0,
+            "MC-b": 374
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-131",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 72,
+            "MC-a": 0,
+            "MC-b": 328
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-132",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 367,
+            "MC-a": 0,
+            "MC-b": 33
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-133",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-134",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-135",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-136",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 361,
+            "MC-a": 0,
+            "MC-b": 39
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-137",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 20,
+            "MC-a": 0,
+            "MC-b": 380
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-138",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 232,
+            "MC-a": 0,
+            "MC-b": 168
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-139",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 381,
+            "MC-a": 0,
+            "MC-b": 19
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-140",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 89,
+            "MC-a": 0,
+            "MC-b": 311
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-141",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 299,
+            "MC-a": 0,
+            "MC-b": 101
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-142",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 120,
+            "MC-a": 0,
+            "MC-b": 280
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-143",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 42,
+            "MC-a": 0,
+            "MC-b": 358
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-144",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 103,
+            "MC-a": 0,
+            "MC-b": 297
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-145",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 272,
+            "MC-a": 0,
+            "MC-b": 128
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-146",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 339,
+            "MC-a": 0,
+            "MC-b": 61
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-147",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-148",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-149",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 126,
+            "MC-a": 0,
+            "MC-b": 274
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-150",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 215,
+            "MC-a": 0,
+            "MC-b": 185
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-151",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-152",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 206,
+            "MC-a": 0,
+            "MC-b": 194
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-153",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 16,
+            "MC-a": 0,
+            "MC-b": 384
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-154",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 79,
+            "MC-a": 0,
+            "MC-b": 321
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-155",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-156",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 159,
+            "MC-a": 0,
+            "MC-b": 241
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-157",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-158",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-159",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 200,
+            "MC-a": 0,
+            "MC-b": 200
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-160",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 159,
+            "MC-a": 0,
+            "MC-b": 241
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-161",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 119,
+            "MC-a": 0,
+            "MC-b": 281
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-162",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 270,
+            "MC-a": 0,
+            "MC-b": 130
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-163",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 390,
+            "MC-a": 0,
+            "MC-b": 10
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-164",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 87,
+            "MC-a": 0,
+            "MC-b": 313
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-165",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 265,
+            "MC-a": 0,
+            "MC-b": 135
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-166",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 25,
+            "MC-a": 0,
+            "MC-b": 375
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-167",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 186,
+            "MC-a": 0,
+            "MC-b": 214
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-168",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 112,
+            "MC-a": 0,
+            "MC-b": 288
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-169",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 365,
+            "MC-a": 0,
+            "MC-b": 35
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-170",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 391,
+            "MC-a": 0,
+            "MC-b": 9
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-171",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 86,
+            "MC-a": 0,
+            "MC-b": 314
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-172",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-173",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 121,
+            "MC-a": 0,
+            "MC-b": 279
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-174",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 87,
+            "MC-a": 0,
+            "MC-b": 313
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-175",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 32,
+            "MC-a": 0,
+            "MC-b": 368
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-176",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 186,
+            "MC-a": 0,
+            "MC-b": 214
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-177",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-178",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 104,
+            "MC-a": 0,
+            "MC-b": 296
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-179",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 126,
+            "MC-a": 0,
+            "MC-b": 274
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-180",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 1,
+            "MC-a": 0,
+            "MC-b": 399
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-181",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 253,
+            "MC-a": 0,
+            "MC-b": 147
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-182",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 233,
+            "MC-a": 0,
+            "MC-b": 167
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-183",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-184",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-185",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 372,
+            "MC-a": 0,
+            "MC-b": 28
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-186",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 25,
+            "MC-a": 0,
+            "MC-b": 375
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-187",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 172,
+            "MC-a": 0,
+            "MC-b": 228
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-188",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 382,
+            "MC-a": 0,
+            "MC-b": 18
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-189",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 264,
+            "MC-a": 0,
+            "MC-b": 136
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-190",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-191",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 150,
+            "MC-a": 0,
+            "MC-b": 250
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-192",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-193",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 3,
+            "MC-a": 0,
+            "MC-b": 397
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-194",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 234,
+            "MC-a": 0,
+            "MC-b": 166
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-195",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 238,
+            "MC-a": 0,
+            "MC-b": 162
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-196",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 400,
+            "MC-a": 0,
+            "MC-b": 0
+          },
+          "fixated": "PGA"
+        },
+        {
+          "seed": "s-axis-197",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 0,
+            "MC-a": 0,
+            "MC-b": 400
+          },
+          "fixated": "MC-b"
+        },
+        {
+          "seed": "s-axis-198",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 208,
+            "MC-a": 0,
+            "MC-b": 192
+          },
+          "fixated": null
+        },
+        {
+          "seed": "s-axis-199",
+          "counts": {
+            "SELF": 0,
+            "GA": 0,
+            "PGA": 236,
+            "MC-a": 0,
+            "MC-b": 164
           },
           "fixated": null
         }
