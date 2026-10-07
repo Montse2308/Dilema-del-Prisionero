@@ -1,10 +1,12 @@
 cff-version: 1.2.0
 message: If you use this software, please cite it.
-title: "Promises to whom: identifying personal guilt and partner-specific commitment across populations"
+title: "Promises to whom: Identifying personal guilt and partner-specific commitment across populations"
 type: software
+version: 1.0.0
 authors:
   - family-names: Hernández Gallegos
     given-names: Montserrat Ximena
+    affiliation: "Independent researcher, San Luis Potosí, Mexico"
 repository-code: https://github.com/Montse2308/Dilema-del-Prisionero
 url: https://github.com/Montse2308/Dilema-del-Prisionero
 license: MIT
@@ -24,3 +26,13 @@ abstract: >-
   above 0.277, the material payoff to personal guilt is low at both ends
   of the population prior and high in the middle. The payoff to
   partner-specific commitment does not move.
+preferred-citation:
+  type: report
+  title: "Promises to whom: Identifying personal guilt and partner-specific commitment across populations"
+  authors:
+    - family-names: Hernández Gallegos
+      given-names: Montserrat Ximena
+      affiliation: "Independent researcher, San Luis Potosí, Mexico"
+  year: 2026
+  notes: "SSRN Working Paper"
+  url: SSRN_URL_PENDING
