@@ -6,7 +6,9 @@ export default defineConfig({
   test: {
     include: ["scripts/reproduce/r[1-6]-*.ts"],
     fileParallelism: false,
-    // Print each run's summary even though the run passes.
+    // Print each run's summary even though the run passes. Vitest picks a
+    // reporter that hides logs when it detects an agent or CI; this one does not.
+    reporters: ["default"],
     silent: false,
     testTimeout: 3_600_000,
   },
