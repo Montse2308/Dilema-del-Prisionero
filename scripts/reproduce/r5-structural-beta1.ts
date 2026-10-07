@@ -10,7 +10,6 @@ import { it } from "vitest";
 import { run, type Beta1Kind } from "../../src/index.js";
 import {
   CONFIG_NOTE,
-  PENDING_CLAIM,
   baseParams,
   describeParams,
   formatShare,
@@ -62,7 +61,8 @@ it("R5 — structural β₁", () => {
     ].join("\n"),
   );
   write("r5", "structural-beta1", clock, {
-    claim: PENDING_CLAIM,
+    claim:
+      "Above s = 1/2, with the structural definition GA is left at 11.4% (s = 0.60) and 8.1% (s = 1); with the entered definition, 46.6% at both.",
     configNote: CONFIG_NOTE,
     params: {
       generations: GENERATIONS,

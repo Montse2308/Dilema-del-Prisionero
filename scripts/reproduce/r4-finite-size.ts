@@ -11,7 +11,6 @@ import { it } from "vitest";
 import { run } from "../../src/index.js";
 import {
   CONFIG_NOTE,
-  PENDING_CLAIM,
   baseParams,
   describeParams,
   formatShare,
@@ -70,7 +69,8 @@ it("R4 — finite-size scaling", () => {
     ].join("\n"),
   );
   write("r4", "finite-size", clock, {
-    claim: PENDING_CLAIM,
+    claim:
+      "At s = 0.42, as N goes from 100 to 200 to 400, PGA goes extinct in 158, 71 and 22 of 200 runs, unfixed runs go from 5 to 79 to 157, and the mean share of PGA rises from 19.7 to 43.0 to 47.4%.",
     configNote: CONFIG_NOTE,
     params: {
       generations: GENERATIONS,

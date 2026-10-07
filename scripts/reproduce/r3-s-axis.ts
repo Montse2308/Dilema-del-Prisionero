@@ -12,7 +12,6 @@ import { it } from "vitest";
 import { run } from "../../src/index.js";
 import {
   CONFIG_NOTE,
-  PENDING_CLAIM,
   baseParams,
   describeParams,
   formatShare,
@@ -81,7 +80,8 @@ it("R3 — s axis", () => {
     ].join("\n"),
   );
   write("r3", "s-axis", clock, {
-    claim: PENDING_CLAIM,
+    claim:
+      "With N = 200, 400 generations, 4 encounters and 200 seeds: MC-b fixes in all seeds at s = 0.49 and in none at 0.50; 0.50, 0.75 and 1 give the same population; the share of PGA falls from 53.3% at 0.40 and 43.0% at 0.42 to 4.8% at 0.44 and 0 at 0.49.",
     configNote: CONFIG_NOTE,
     params: {
       generations: GENERATIONS,

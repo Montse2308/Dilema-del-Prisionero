@@ -13,9 +13,7 @@
  * Each run writes `results/<id>-<name>.json`:
  *   schemaVersion  Version of this format. Bump it when a field changes meaning.
  *   id             r1 … r6.
- *   claim          What the working paper states for this run, after the text was
- *                  corrected to these runs; "pending text update" where that is
- *                  not settled yet.
+ *   claim          What the working paper states for this run.
  *   configNote     Present when the configuration of the original exploratory
  *                  runs was not recorded and this run fixes it.
  *   provenance     engineRepo, engineCommit (`git rev-parse HEAD`), generatedAt
@@ -147,8 +145,6 @@ export function formatShare(summary: Summary, spec: Spec): string {
 /** For the runs whose original configuration was not recorded. */
 export const CONFIG_NOTE =
   "the encounters and seeds of the original exploratory runs were not recorded; these runs fix 4 encounters, as the engine cut and R1, and 200 seeds";
-
-export const PENDING_CLAIM = "pending text update";
 
 export function round(value: number, digits: number): number {
   const factor = 10 ** digits;
