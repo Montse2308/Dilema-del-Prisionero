@@ -4,7 +4,7 @@
 
 Simulación de una población finita, en TypeScript, de por qué se cumple una promesa cuando ya no conviene cumplirla. El cambio de pareja de Vanberg separa los motivos que dependen de una creencia de los que dependen de la palabra dada, y deja juntos a la culpa personal y al compromiso específico a la pareja. Este repositorio es el motor de esa comparación.
 
-Documento de trabajo: *Promises to whom: Identifying personal guilt and partner-specific commitment across populations* (SSRN, SSRN_URL_PENDING).
+Documento de trabajo: *Promises to whom: Identifying personal guilt and partner-specific commitment across populations* (SSRN; el enlace se agrega al publicarse).
 
 El código comprueba las dos afirmaciones de abajo. No ajusta porcentajes de laboratorio.
 
@@ -83,8 +83,7 @@ Los datos para citar el código y el documento de trabajo están en [`CITATION.c
 
 ## Lista para la release
 
-1. Reemplazar `SSRN_URL_PENDING` (README, README.es, `CITATION.cff`) y `date-released`; validar `CITATION.cff`.
-2. Merge a `main` sin squash ni rebase.
-3. Hacer público el repositorio y activarlo en Zenodo.
-4. Tag `v1.0.0` y publicar la release en GitHub.
-5. Agregar el DOI de Zenodo a `CITATION.cff` y a este README.
+1. Hacer público el repositorio y activarlo en Zenodo.
+2. Tag `v1.0.0` y publicar la release en GitHub.
+3. Agregar el DOI de Zenodo a `CITATION.cff` y a los dos README.
+4. Cuando el documento de trabajo esté en SSRN, agregar su URL a `preferred-citation` en `CITATION.cff` y a los dos README (commit normal, sin nueva release).

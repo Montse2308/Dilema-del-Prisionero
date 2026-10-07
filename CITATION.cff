@@ -10,7 +10,7 @@ authors:
 repository-code: https://github.com/Montse2308/Dilema-del-Prisionero
 url: https://github.com/Montse2308/Dilema-del-Prisionero
 license: MIT
-date-released: 2026-09-23
+date-released: 2026-10-07
 keywords:
   - evolutionary game theory
   - promises
@@ -35,4 +35,3 @@ preferred-citation:
       affiliation: "Independent researcher, San Luis Potosí, Mexico"
   year: 2026
   notes: "SSRN Working Paper"
-  url: SSRN_URL_PENDING
