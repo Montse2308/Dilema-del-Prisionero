@@ -6,7 +6,7 @@
 
 Finite-population simulation, in TypeScript, of why a promise is kept when keeping it no longer pays. Vanberg's partner switch separates belief-dependent motives from word-dependent ones, and it leaves personal guilt and partner-specific commitment together. This repository is the engine behind that comparison.
 
-Working paper: *Promises to whom: Identifying personal guilt and partner-specific commitment across populations* (SSRN; link added once posted).
+Working paper: *Promises to whom: Identifying personal guilt and partner-specific commitment across populations* ([SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7580218)).
 
 The code checks the two claims below. It does not fit laboratory percentages.
 
@@ -92,4 +92,4 @@ The DOI [`10.5281/zenodo.23222609`](https://doi.org/10.5281/zenodo.23222609) alw
 1. [x] Make the repository public and turn it on in Zenodo.
 2. [x] Tag `v1.0.0` and publish the GitHub release.
 3. [x] Add the Zenodo DOI to `CITATION.cff` and to both READMEs.
-4. [ ] Once the working paper is on SSRN, add its URL to `preferred-citation` in `CITATION.cff` and to both READMEs (a normal commit, no new release).
+4. [x] Once the working paper is on SSRN, add its URL to `preferred-citation` in `CITATION.cff` and to both READMEs (a normal commit, no new release).
