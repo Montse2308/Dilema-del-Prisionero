@@ -3,10 +3,11 @@ message: If you use this software, please cite it.
 title: "Promises to whom: Identifying personal guilt and partner-specific commitment across populations"
 type: software
 version: 1.0.0
+doi: 10.5281/zenodo.23222609
 authors:
   - family-names: Hernández Gallegos
     given-names: Montserrat Ximena
-    affiliation: "Independent researcher, San Luis Potosí, Mexico"
+    affiliation: "Intelligent Systems Engineer, San Luis Potosí, Mexico"
 repository-code: https://github.com/Montse2308/Dilema-del-Prisionero
 url: https://github.com/Montse2308/Dilema-del-Prisionero
 license: MIT
@@ -32,6 +33,6 @@ preferred-citation:
   authors:
     - family-names: Hernández Gallegos
       given-names: Montserrat Ximena
-      affiliation: "Independent researcher, San Luis Potosí, Mexico"
+      affiliation: "Intelligent Systems Engineer, San Luis Potosí, Mexico"
   year: 2026
   notes: "SSRN Working Paper"

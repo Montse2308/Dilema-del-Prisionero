@@ -75,7 +75,11 @@ La selección copia el tipo. No copia θ ni el costo del compromiso.
 
 ## Cómo citar
 
-Los datos para citar el código y el documento de trabajo están en [`CITATION.cff`](CITATION.cff). El DOI del código aparecerá ahí cuando se publique la primera release.
+Los datos para citar el código y el documento de trabajo están en [`CITATION.cff`](CITATION.cff). Para citar esta versión del código:
+
+> Hernández Gallegos, M. X. (2026). *Promises to whom: Identifying personal guilt and partner-specific commitment across populations* (Version 1.0.0) [Software]. Zenodo. https://doi.org/10.5281/zenodo.23222610
+
+El DOI [`10.5281/zenodo.23222609`](https://doi.org/10.5281/zenodo.23222609) siempre resuelve a la versión más reciente.
 
 ## Licencia
 
@@ -83,7 +87,7 @@ Los datos para citar el código y el documento de trabajo están en [`CITATION.c
 
 ## Lista para la release
 
-1. Hacer público el repositorio y activarlo en Zenodo.
-2. Tag `v1.0.0` y publicar la release en GitHub.
-3. Agregar el DOI de Zenodo a `CITATION.cff` y a los dos README.
-4. Cuando el documento de trabajo esté en SSRN, agregar su URL a `preferred-citation` en `CITATION.cff` y a los dos README (commit normal, sin nueva release).
+1. [x] Hacer público el repositorio y activarlo en Zenodo.
+2. [x] Tag `v1.0.0` y publicar la release en GitHub.
+3. [x] Agregar el DOI de Zenodo a `CITATION.cff` y a los dos README.
+4. [ ] Cuando el documento de trabajo esté en SSRN, agregar su URL a `preferred-citation` en `CITATION.cff` y a los dos README (commit normal, sin nueva release).

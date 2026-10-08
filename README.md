@@ -77,7 +77,11 @@ Selection copies the type. It does not copy θ or the cost of commitment.
 
 ## How to cite
 
-Citation metadata for the code and the working paper is in [`CITATION.cff`](CITATION.cff). The DOI for the code will appear there when the first release is published.
+Citation metadata for the code and the working paper is in [`CITATION.cff`](CITATION.cff). To cite this version of the code:
+
+> Hernández Gallegos, M. X. (2026). *Promises to whom: Identifying personal guilt and partner-specific commitment across populations* (Version 1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.23222610
+
+The DOI [`10.5281/zenodo.23222609`](https://doi.org/10.5281/zenodo.23222609) always resolves to the latest version.
 
 ## License
 
@@ -85,7 +89,7 @@ Citation metadata for the code and the working paper is in [`CITATION.cff`](CITA
 
 ## Release checklist
 
-1. Make the repository public and turn it on in Zenodo.
-2. Tag `v1.0.0` and publish the GitHub release.
-3. Add the Zenodo DOI to `CITATION.cff` and to both READMEs.
-4. Once the working paper is on SSRN, add its URL to `preferred-citation` in `CITATION.cff` and to both READMEs (a normal commit, no new release).
+1. [x] Make the repository public and turn it on in Zenodo.
+2. [x] Tag `v1.0.0` and publish the GitHub release.
+3. [x] Add the Zenodo DOI to `CITATION.cff` and to both READMEs.
+4. [ ] Once the working paper is on SSRN, add its URL to `preferred-citation` in `CITATION.cff` and to both READMEs (a normal commit, no new release).
