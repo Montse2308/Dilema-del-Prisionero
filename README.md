@@ -26,7 +26,7 @@ Background trust here is a population prior, `β₀ = φ · β₁`, not each dec
 
 - It does not reproduce 59% against 43%, or 74% against 70%. Those are laboratory facts. The model is not calibrated to them.
 - It does not report bistability. Where the two payoffs are equal, who remains is drift.
-- It is not a browser demo.
+- It is not an interactive simulator. The outreach page's /finding runs it in the browser, but only in three fixed worlds with the paper's seeds.
 
 ## Run
 

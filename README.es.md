@@ -24,7 +24,7 @@ Aquí la confianza de fondo es un prior poblacional, `β₀ = φ · β₁`, no l
 
 - No reproduce el 59% contra el 43%, ni el 74% contra el 70%. Esos son hechos de laboratorio. El modelo no se calibra contra ellos.
 - No reporta bi-estabilidad. Donde los dos pagos son iguales, quién queda es deriva.
-- No es una demo en el navegador.
+- No es un simulador interactivo. La página de divulgación lo corre en el navegador en /finding, pero solo en tres mundos fijos con las semillas del paper.
 
 ## Cómo correrlo
 
