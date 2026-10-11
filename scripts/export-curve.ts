@@ -69,7 +69,7 @@ it("writes export/curve.json", () => {
   const document = {
     schemaVersion: CURVE_SCHEMA_VERSION,
     provenance: {
-      engineRepo: "Montse2308/Dilema-del-Prisionero",
+      engineRepo: "Montse2308/promises-to-whom-engine",
       engineCommit: git("rev-parse", "HEAD").trim(),
       generatedAt: new Date().toISOString(),
       node: process.version,

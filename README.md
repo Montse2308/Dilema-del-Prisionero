@@ -2,7 +2,7 @@
 
 [Español](README.es.md)
 
-[![test](https://github.com/Montse2308/Dilema-del-Prisionero/actions/workflows/test.yml/badge.svg)](https://github.com/Montse2308/Dilema-del-Prisionero/actions/workflows/test.yml)
+[![test](https://github.com/Montse2308/promises-to-whom-engine/actions/workflows/test.yml/badge.svg)](https://github.com/Montse2308/promises-to-whom-engine/actions/workflows/test.yml)
 
 Finite-population simulation, in TypeScript, of why a promise is kept when keeping it no longer pays. Vanberg's partner switch separates belief-dependent motives from word-dependent ones, and it leaves personal guilt and partner-specific commitment together. This repository is the engine behind that comparison.
 

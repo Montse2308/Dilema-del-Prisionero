@@ -206,7 +206,7 @@ export function write(
     claim: body.claim,
     ...(body.configNote === undefined ? {} : { configNote: body.configNote }),
     provenance: {
-      engineRepo: "Montse2308/Dilema-del-Prisionero",
+      engineRepo: "Montse2308/promises-to-whom-engine",
       engineCommit: git("rev-parse", "HEAD").trim(),
       generatedAt: new Date().toISOString(),
       node: process.version,
