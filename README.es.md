@@ -6,6 +6,8 @@ Simulación de una población finita, en TypeScript, de por qué se cumple una p
 
 Documento de trabajo: *Promises to whom: Identifying personal guilt and partner-specific commitment across populations* ([SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7580218)).
 
+Página de divulgación: [¿Por qué cumplir una promesa que ya no conviene?](https://montse2308.github.io/why-keep-a-promise/es/), una historia ilustrada de la pregunta y una página sobre el hallazgo, en inglés y en español.
+
 El código comprueba las dos afirmaciones de abajo. No ajusta porcentajes de laboratorio.
 
 ## Resultado
@@ -84,10 +86,3 @@ El DOI [`10.5281/zenodo.23222609`](https://doi.org/10.5281/zenodo.23222609) siem
 ## Licencia
 
 [MIT](LICENSE).
-
-## Lista para la release
-
-1. [x] Hacer público el repositorio y activarlo en Zenodo.
-2. [x] Tag `v1.0.0` y publicar la release en GitHub.
-3. [x] Agregar el DOI de Zenodo a `CITATION.cff` y a los dos README.
-4. [x] Cuando el documento de trabajo esté en SSRN, agregar su URL a `preferred-citation` en `CITATION.cff` y a los dos README (commit normal, sin nueva release).

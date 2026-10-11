@@ -8,6 +8,8 @@ Finite-population simulation, in TypeScript, of why a promise is kept when keepi
 
 Working paper: *Promises to whom: Identifying personal guilt and partner-specific commitment across populations* ([SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7580218)).
 
+Outreach page: [Why keep a promise that no longer pays?](https://montse2308.github.io/why-keep-a-promise/), an illustrated story of the question and a page on the finding, in English and Spanish.
+
 The code checks the two claims below. It does not fit laboratory percentages.
 
 ## Result
@@ -86,10 +88,3 @@ The DOI [`10.5281/zenodo.23222609`](https://doi.org/10.5281/zenodo.23222609) alw
 ## License
 
 [MIT](LICENSE).
-
-## Release checklist
-
-1. [x] Make the repository public and turn it on in Zenodo.
-2. [x] Tag `v1.0.0` and publish the GitHub release.
-3. [x] Add the Zenodo DOI to `CITATION.cff` and to both READMEs.
-4. [x] Once the working paper is on SSRN, add its URL to `preferred-citation` in `CITATION.cff` and to both READMEs (a normal commit, no new release).
