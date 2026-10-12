@@ -8,7 +8,7 @@ Finite-population simulation, in TypeScript, of why a promise is kept when keepi
 
 Working paper: *Promises to whom: Identifying personal guilt and partner-specific commitment across populations* ([SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7580218)).
 
-Outreach page: [Why keep a promise that no longer pays?](https://montse2308.github.io/why-keep-a-promise/), an illustrated story of the question and a page on the finding, in English and Spanish.
+Outreach page: [Why keep a promise that no longer pays?](https://whykeepapromise.org/), an illustrated story of the question and a page on the finding, in English and Spanish.
 
 The code checks the two claims below. It does not fit laboratory percentages.
 

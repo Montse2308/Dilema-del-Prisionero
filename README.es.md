@@ -6,7 +6,7 @@ Simulación de una población finita, en TypeScript, de por qué se cumple una p
 
 Documento de trabajo: *Promises to whom: Identifying personal guilt and partner-specific commitment across populations* ([SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7580218)).
 
-Página de divulgación: [¿Por qué cumplir una promesa que ya no conviene?](https://montse2308.github.io/why-keep-a-promise/es/), una historia ilustrada de la pregunta y una página sobre el hallazgo, en inglés y en español.
+Página de divulgación: [¿Por qué cumplir una promesa que ya no conviene?](https://whykeepapromise.org/es/), una historia ilustrada de la pregunta y una página sobre el hallazgo, en inglés y en español.
 
 El código comprueba las dos afirmaciones de abajo. No ajusta porcentajes de laboratorio.
 
